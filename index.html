@@ -1,25 +1,100 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>GameBase</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
+      <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
-      <!-- Do not add `script` tags-->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans|Play" rel="stylesheet">
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="https://use.fontawesome.com/b9279fc81b.js"></script>
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8" defer></script> -->
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+    <header class="header">
+      <div class='logo'>
+        <h1>E-Commerce</h1>
+      </div>
+      <div class="login-status">
+      <div class="logged-out">
+        <div class="signInError"></div>
+        <form id="sign-in">
+          <fieldset>
+            <input id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]'>
+            <input id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]'>
+            <button class="btn btn-primary btn-lg" type="submit">Sign in!</button>
+          </fieldset>
+        </form>
+        <p class="signup-prompt">Don't have an account?</p>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
+      Sign Up!
+    </button><br><br>
+    <div class="sign-in-error-msg error-msg"></div>
+    </div>
+
+    <div class="logged-in">
+      <div class="greeting"></div>
+      <form id="sign-out">
+        <fieldset>
+          <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign Out">
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePwModal">Change Password</button>
+        </fieldset>
+      </form><br><br><br>
+    </div>
+  </div>
+
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign Up!</h4>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up">
+          <fieldset>
+            <span class="star-required">*</span>&nbsp;&nbsp;<input class='pop-up-fields text-field text-field-signup' type='text' placeholder='Email' name='credentials[email]'> <br> <br>
+            <span id="signup-pw" class="star-required">*</span>&nbsp;&nbsp;<input class='pop-up-fields text-field text-field-signup' type='password' placeholder='Password' name='credentials[password]'><br> <br>
+            <span class="star-required">*</span>&nbsp;&nbsp;<input class='pop-up-fields text-field text-field-signup' type='password' placeholder='Re-enter Password' name='credentials[password_confirmation]'><br><br>
+            <button class="btn btn-primary btn-lg" type="submit">Sign up</button>
+          </fieldset><br>
+          <div class="sign-up-error-msg error-msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="changePwModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+      </div>
+      <div class="modal-body">
+        <form id="change-pw">
+          <fieldset>
+            <input class='pop-up-fields text-field text-field-chpw' type='password' placeholder='Current Password' name='passwords[old]'> <br> <br>
+            <input class='pop-up-fields text-field text-field-chpw' type='password' placeholder='New Password' name='passwords[new]'><br> <br>
+            <button class="btn btn-primary btn-lg" type="submit">Change Password</button>
+          </fieldset><br>
+          <div class="change-pw-error-msg error-msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+    <div class="page-bottom">
+      <p>Created By us</p>
+      <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
     </body>
+    </div>
+
 </html>

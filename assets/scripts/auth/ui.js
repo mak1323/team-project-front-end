@@ -1,13 +1,13 @@
 'use strict'
 
-const store = require('./store')
+const store = require('../store')
 // if we use handlebars replace x with filename
 // const showxTemplate = require('./templates/x.handlebars')
 
 const signUpSuccess = (data) => {
   $('#signUpModal').modal('hide')
   $('.text-field-signup').val('')
-  $('#sign-in').submit()
+  // $('#sign-in').submit()
 }
 
 const signUpFailure = () => {
