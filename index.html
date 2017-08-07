@@ -96,7 +96,6 @@
 
 </div>
 <div class="shoppingCart">
-
   <table id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
     <thead>
       <tr>
@@ -109,19 +108,62 @@
         <th data-field="quantity" data-sortable="true">
           Quantity
         </th>
-
         <th data-field="edit-delete" data-sortable="false">
           Remove Item
         </th>
       </tr>
     </thead>
+    <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
     <tbody>
     </tbody>
   </table>
 </div>
+
 <div class="payment">
 
 </div>
+
+
+<aside>
+
+  <!-- modal body for 'update quantity' button. This button lives in the shoppingCart
+  handlebars file. Don't place this content in handlebars it gets messy. -->
+
+  <!-- uncomment this section, and the update quantity button html in handlebars,
+  to implement the update item quantity button in handlebars file-->
+  <!-- <div class="forms">
+    <div class="row">
+      <div class="col-md-12"> -->
+        <!-- <div class="modal fade" id="updateQuantityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close updateQuantityClose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Update Quantity</h4>
+                <h5 id="updateQuantityFailure"> </h5>
+              </div>
+              <div class="modal-body">
+                <form id="updateQuantityFormSubmit" class="updateButton form-horizontal">
+                  <div class="form-group">
+                    <label for="inputQuantity" class="col-sm-2 control-label">Product Quantity</label>
+                    <div class="col-sm-10">
+                      <input name="product[quantity]" type="number" class="form-control" id="inputQuantity" placeholder="Product Quantity (only accepts numbers)">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default">Update Quantity</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</aside>
 
 
     <div class="page-bottom">
