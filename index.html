@@ -95,8 +95,29 @@
 
 
 </div>
-<div class="cart">
+<div class="shoppingCart">
 
+  <table id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
+    <thead>
+      <tr>
+        <th data-field="itemName" data-sortable="true">
+          Item
+        </th>
+        <th data-field="price" data-sortable="true">
+          Price
+        </th>
+        <th data-field="quantity" data-sortable="true">
+          Quantity
+        </th>
+
+        <th data-field="edit-delete" data-sortable="false">
+          Remove Item
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 </div>
 <div class="payment">
 
