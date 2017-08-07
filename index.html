@@ -11,7 +11,7 @@
       <script src="https://use.fontawesome.com/b9279fc81b.js"></script>
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-      <!-- <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8" defer></script> -->
+      <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
 
@@ -25,8 +25,8 @@
         <div class="signInError"></div>
         <form id="sign-in">
           <fieldset>
-            <input id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]'>
-            <input id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]'>
+            <input id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]' value="b">
+            <input id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]' value="b">
             <button class="btn btn-primary btn-lg" type="submit">Sign in!</button>
           </fieldset>
         </form>
@@ -94,6 +94,7 @@
 
 <div class="landingPage">
   <!-- add content to landing page here -->
+  <button id="indexProducts" class="btn"> index </button>
 </div>
 
 </div>
