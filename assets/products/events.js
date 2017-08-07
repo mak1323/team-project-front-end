@@ -33,7 +33,7 @@ const getAllProducts = function (event) {
   event.preventDefault()
   api.requestAllProducts()
     .then(ui.allProductsSuccess)
-    .catch(ui.allProductFailure)
+    .catch(ui.allProductsFailure)
 }
 
 const addHandlers = () => {

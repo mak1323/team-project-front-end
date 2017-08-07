@@ -34,10 +34,10 @@ const addAProduct = function (data) {
   })
 }
 
-const updateARating = function (movie) {
-  const data = movie
+const updateAProduct = function (product) {
+  const data = product
   return $.ajax({
-    url: config.apiOrigin + '/products/' + movie.id,
+    url: config.apiOrigin + '/products/' + product.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -49,5 +49,5 @@ module.exports = {
   requestAllProducts,
   deleteAProduct,
   addAProduct,
-  updateARating
+  updateAProduct
 }

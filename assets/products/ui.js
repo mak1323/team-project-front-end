@@ -2,21 +2,30 @@
 
 const store = require('./store')
 
-const allProductSuccess = function () {
+const allProductsSuccess = function () {
 
 }
-const allProductFailure = function() {
+const allProductsFailure = function () {
 
 }
 const deleteProductSuccess = function () {
 
 }
-const deleteProductFailure = function() {
+const deleteProductFailure = function () {
 
 }
 const addProductSuccess = function () {
 
 }
-const addProductFailure = function() {
+const addProductFailure = function () {
 
+}
+
+module.export = {
+  allProductsSuccess,
+  allProductsFailure,
+  deleteProductSuccess,
+  deleteProductFailure,
+  addProductSuccess,
+  addProductFailure
 }
