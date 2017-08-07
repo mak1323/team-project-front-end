@@ -6,7 +6,6 @@ const ui = require('./ui')
 
 // show the product catalog on the landing page
 const onShowAllProducts = function (event) {
-  console.log('show all products function in events')
   event.preventDefault()
   api.showAllProducts()
     .then(ui.showAllProductsSuccess)

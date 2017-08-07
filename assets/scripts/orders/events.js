@@ -31,12 +31,13 @@ const onUpdateOrder = function (event) {
 const onShowAllOrders = function (event) {
   event.preventDefault()
   api.showAllOrders()
-    .then(ui.allOrdersSuccess)
-    .catch(ui.allOrdersFailure)
+    .then(ui.showAllOrdersSuccess)
+    .catch(ui.showAllOrdersFailure)
 }
 
 const addHandlers = () => {
-  $('').on('click', onShowAllOrders)
+  $('#orderHistoryButton').on('click', onShowAllOrders)
+  $('#shoppingCartButton').on('click', onShowAllOrders)
   $('').on('click', onAddOrder)
   $('').on('click', onUpdateOrder)
 }
