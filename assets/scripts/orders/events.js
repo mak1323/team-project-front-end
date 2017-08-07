@@ -21,7 +21,7 @@ const onUpdateOrder = function (event) {
     .catch(ui.updateOrderFailure)
 }
 
-const onGetAllOrders = function (event) {
+const onShowAllOrders = function (event) {
   event.preventDefault()
   api.requestAllOrders()
     .then(ui.allOrdersSuccess)
@@ -29,7 +29,7 @@ const onGetAllOrders = function (event) {
 }
 
 const addHandlers = () => {
-  $('').on('click', onGetAllOrders)
+  $('').on('click', onShowAllOrders)
   $('').on('click', onAddOrder)
   $('').on('click', onUpdateOrder)
 }

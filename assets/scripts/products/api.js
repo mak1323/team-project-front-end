@@ -3,7 +3,10 @@
 const config = require('./config')
 const store = require('./store')
 
-const requestAllProducts = function (data) {
+// this is what loads when the landing page is accessed. It will display all
+// of the products. It will also run everytime you click on a category, which
+// will filter to only show the indexed products of a given category.
+const showAllProducts = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/products',
     method: 'GET',
@@ -14,6 +17,6 @@ const requestAllProducts = function (data) {
 }
 
 module.exports = {
-  requestAllProducts,
+  showAllProducts
 
 }

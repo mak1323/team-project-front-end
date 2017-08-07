@@ -2,10 +2,10 @@
 
 const store = require('./store')
 
-const allOrdersSuccess = function () {
+const showAllOrdersSuccess = function () {
 
 }
-const allOrdersFailure = function () {
+const showAllOrdersFailure = function () {
 
 }
 
@@ -24,8 +24,8 @@ const updateOrderFailure = function () {
 }
 
 module.exports = {
-  allOrdersSuccess,
-  allOrdersFailure,
+  showAllOrdersSuccess,
+  showAllOrdersFailure,
   addOrderSuccess,
   addOrderFailure,
   updateOrderSuccess,

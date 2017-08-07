@@ -5,7 +5,7 @@ const getFormFields = require(`../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
-const onGetAllProducts = function (event) {
+const onShowAllProducts = function (event) {
   event.preventDefault()
   api.requestAllProducts()
     .then(ui.allProductsSuccess)
@@ -13,9 +13,9 @@ const onGetAllProducts = function (event) {
 }
 
 const addHandlers = () => {
-  $('').on('click', onGetAllProducts)
-
+  $('').on('click', onShowAllProducts)
 }
+
 module.exports = {
   addHandlers
 }

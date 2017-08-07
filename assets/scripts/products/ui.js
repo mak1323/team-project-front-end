@@ -2,14 +2,14 @@
 
 const store = require('./store')
 
-const allProductsSuccess = function () {
+const showAllProductsSuccess = function () {
 
 }
-const allProductsFailure = function () {
+const showAllProductsFailure = function () {
 
 }
 
 module.export = {
-  allProductsSuccess,
-  allProductsFailure
+  showAllProductsSuccess,
+  showAllProductsFailure
 }
