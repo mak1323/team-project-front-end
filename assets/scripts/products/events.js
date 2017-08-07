@@ -13,14 +13,6 @@ const onShowAllProducts = function (event) {
     .catch(ui.showAllProductsFailure)
 }
 
-// const onRemoveProduct = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(this)
-//   api.updateAQuantity(data)
-//     .then(ui.updateOrderSuccess)
-//     .catch(ui.updateOrderFailure)
-// }
-
 const addHandlers = () => {
   $('#indexProducts').on('click', onShowAllProducts)
 }
