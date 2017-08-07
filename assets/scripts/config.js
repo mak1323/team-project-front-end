@@ -2,8 +2,10 @@
 
 const config = {
   apiOrigins: {
+
     production: 'https://mudabish.herokuapp.com',
     development: 'http://localhost:4741'
+
   }
 }
 
