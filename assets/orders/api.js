@@ -13,16 +13,6 @@ const requestAllOrders = function (data) {
   })
 }
 
-const deleteAOrder = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/orders/' + data.id,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 const addAOrder = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/orders',
@@ -45,9 +35,20 @@ const updateAOrder = function (order) {
     data
   })
 }
+
+// const deleteAOrder = function (data) {
+//   return $.ajax({
+//     url: config.apiOrigin + '/orders/' + data.id,
+//     method: 'DELETE',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     }
+//   })
+// }
+
 module.exports = {
   requestAllOrders,
-  deleteAOrder,
+  // deleteAOrder,
   addAOrder,
   updateAOrder
 }

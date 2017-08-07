@@ -8,24 +8,24 @@ const allProductsSuccess = function () {
 const allProductsFailure = function () {
 
 }
-const deleteProductSuccess = function () {
-
-}
-const deleteProductFailure = function () {
-
-}
-const addProductSuccess = function () {
-
-}
-const addProductFailure = function () {
-
-}
+// const deleteProductSuccess = function () {
+//
+// }
+// const deleteProductFailure = function () {
+//
+// }
+// const addProductSuccess = function () {
+//
+// }
+// const addProductFailure = function () {
+//
+// }
 
 module.export = {
   allProductsSuccess,
-  allProductsFailure,
-  deleteProductSuccess,
-  deleteProductFailure,
-  addProductSuccess,
-  addProductFailure
+  allProductsFailure
+  // deleteProductSuccess,
+  // deleteProductFailure,
+  // addProductSuccess,
+  // addProductFailure
 }

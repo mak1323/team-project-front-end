@@ -13,20 +13,12 @@ const addOrder = function (event) {
     .catch(ui.addOrderFailure)
 }
 
-const deleteOrder = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.deleteAOrder(data)
-    .then(ui.deleteOrderSuccess)
-    .catch(ui.deleteOrderFailure)
-}
-
-const updateQuantity = function (event) {
+const updateOrder = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.updateAQuantity(data)
-    .then(ui.updateQuantitySuccess)
-    .catch(ui.updateQuantityFailure)
+    .then(ui.updateOrderSuccess)
+    .catch(ui.updateOrderFailure)
 }
 
 const getAllOrders = function (event) {
@@ -36,11 +28,19 @@ const getAllOrders = function (event) {
     .catch(ui.allOrdersFailure)
 }
 
+// const deleteOrder = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(this)
+//   api.deleteAOrder(data)
+//     .then(ui.deleteOrderSuccess)
+//     .catch(ui.deleteOrderFailure)
+// }
+
 const addHandlers = () => {
   $('').on('click', getAllOrders)
-  $('').on('click', deleteOrder)
+  // $('').on('click', deleteOrder)
   $('').on('click', addOrder)
-  $('').on('click', updateQuantity)
+  $('').on('click', updateOrder)
 }
 module.exports = {
   addHandlers
