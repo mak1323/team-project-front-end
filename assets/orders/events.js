@@ -28,17 +28,8 @@ const getAllOrders = function (event) {
     .catch(ui.allOrdersFailure)
 }
 
-// const deleteOrder = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(this)
-//   api.deleteAOrder(data)
-//     .then(ui.deleteOrderSuccess)
-//     .catch(ui.deleteOrderFailure)
-// }
-
 const addHandlers = () => {
   $('').on('click', getAllOrders)
-  // $('').on('click', deleteOrder)
   $('').on('click', addOrder)
   $('').on('click', updateOrder)
 }

@@ -22,18 +22,10 @@ const updateOrderSuccess = function () {
 const updateOrderFailure = function () {
 
 }
-// const deleteOrderSuccess = function () {
-//
-// }
-// const deleteOrderFailure = function () {
-//
-// }
 
 module.exports = {
   allOrdersSuccess,
   allOrdersFailure,
-  // deleteOrderSuccess,
-  // deleteOrderFailure,
   addOrderSuccess,
   addOrderFailure,
   updateOrderSuccess,

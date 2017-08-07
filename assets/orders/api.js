@@ -36,19 +36,8 @@ const updateAOrder = function (order) {
   })
 }
 
-// const deleteAOrder = function (data) {
-//   return $.ajax({
-//     url: config.apiOrigin + '/orders/' + data.id,
-//     method: 'DELETE',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
-
 module.exports = {
   requestAllOrders,
-  // deleteAOrder,
   addAOrder,
   updateAOrder
 }
