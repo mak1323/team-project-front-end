@@ -36,7 +36,8 @@ const onShowAllOrders = function (event) {
 }
 
 const addHandlers = () => {
-  $('').on('click', onShowAllOrders)
+  $('orderHistoryButton').on('click', onShowAllOrders)
+  $('shoppingCartButton').on('click', onShowAllOrders)
   $('').on('click', onAddOrder)
   $('').on('click', onUpdateOrder)
 }
