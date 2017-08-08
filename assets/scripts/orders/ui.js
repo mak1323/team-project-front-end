@@ -7,6 +7,7 @@ const showAllOrdersSuccess = function (data) {
   $('#cartTable').show()
   $('#cartTable tbody').empty()
   $('#cartTable tbody').append(showOrdersHTML)
+  $('.hideLandingPage').hide()
   // $('.addToCart').on('submit', onAddItemToOrder)
 }
 const showAllOrdersFailure = function () {
