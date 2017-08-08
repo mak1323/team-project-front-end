@@ -17,11 +17,13 @@
 
     <header class="header">
       <!-- this is the drop down for menu items such as shopping cart and order history -->
+      <!--  hideLandingPage -->
       <div class="dropdown pull-left logged-in">
         <button class="dropbtn">Menu</button>
           <div class="dropdown-content">
-            <a href="#" id="orderHistoryButton" class="logged-in"> Order History </a>
             <a href="#" id="shoppingCartButton" class="logged-in"> Shopping Cart </a>
+            <a href="#" id="orderHistoryButton" class="logged-in"> Order History </a>
+            <a href="#" id="returnToProducts" class="logged-in"> Home </a>
           </div>
     </div>
       <div class='logo'>
@@ -101,7 +103,7 @@
 </div>
 </header>
 
-<div class="landingPage hideLandingPage">
+<div class="landingPage">
   <!--  the class "logged-in" is what hides the product list when a user signs out, it is located in the auth/ui-->
   <div class="productList logged-in">
     <table id="productTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">

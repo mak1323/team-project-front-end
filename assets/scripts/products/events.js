@@ -10,6 +10,16 @@ const onShowAllProducts = function (event) {
     .then(ui.showAllProductsSuccess)
     .catch(ui.showAllProductsFailure)
 }
+
+const onProductsMenuButton = () => {
+  $('.landingPage').show()
+  $('.cartTable').hide()
+}
+const addHandlers = () => {
+  $('#returnToProducts').on('click', onProductsMenuButton)
+}
+
 module.exports = {
-  onShowAllProducts
+  onShowAllProducts,
+  addHandlers
 }

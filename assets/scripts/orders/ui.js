@@ -4,10 +4,10 @@ const showOrdersTemplate = require('../templates/orders.handlebars')
 const showAllOrdersSuccess = function (data) {
   console.table(data)
   const showOrdersHTML = showOrdersTemplate({ orders: data.orders })
-  $('#cartTable').show()
+  $('.cartTable').show()
   $('#cartTable tbody').empty()
   $('#cartTable tbody').append(showOrdersHTML)
-  $('.hideLandingPage').hide()
+  $('.landingPage').hide()
   // $('.addToCart').on('submit', onAddItemToOrder)
 }
 const showAllOrdersFailure = function () {
