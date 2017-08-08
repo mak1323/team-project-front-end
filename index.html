@@ -165,7 +165,9 @@
 
 
 <div class="payment">
-<!-- add the content for the payments page here -->
+
+
+
 </div>
 
 
@@ -214,6 +216,37 @@
     <div class="page-bottom">
       <p>Created By us</p>
       <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+      <script src="https://checkout.stripe.com/checkout.js"></script>
+
+      <button id="customButton">Purchase</button>
+
+      <script>
+      var handler = StripeCheckout.configure({
+        key: 'pk_test_7fQwskkIwuWNEkWfcIyJZJKS',
+        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+        locale: 'auto',
+        token: function(token) {
+          console.log(token.id)
+          // You can access the token ID with `token.id`.
+          // Get the token ID to your server-side code for use.
+        }
+      });
+      document.getElementById('customButton').addEventListener('click', function(e) {
+        // Open Checkout with further options:
+        handler.open({
+          name: 'Demo Site',
+          description: '2 widgets',
+          amount: 2000
+        });
+        e.preventDefault();
+      });
+
+      // Close Checkout on page navigation:
+      window.addEventListener('popstate', function() {
+        handler.close();
+      });
+      </script>
     </body>
     </div>
 
