@@ -16,6 +16,14 @@
     <body class="container-fluid">
 
     <header class="header">
+      <!-- this is the drop down for menu items such as shopping cart and order history -->
+      <div class="dropdown pull-left">
+        <button class="dropbtn">Menu</button>
+          <div class="dropdown-content">
+            <a href="#" id="orderHistoryButton" class="logged-in"> Order History </a>
+            <a href="#" id="shoppingCartButton" class="logged-in"> Shopping Cart </a>
+          </div>
+    </div>
       <div class='logo'>
         <h1>Fencer</h1>
         <h2>The one stop shop for galactic goods.</h2>
@@ -94,9 +102,6 @@
 </header>
 
 <div class="landingPage">
-  <!-- add content to landing page here -->
-  <button id="orderHistoryButton" class="btn"> Order History </button>
-  <button id="shoppingCartButton" class="btn"> Shopping Cart </button>
   <!--  the class "logged-in" is what hides the product list when a user signs out, it is located in the auth/ui-->
   <div class="productList logged-in">
     <table id="productTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
@@ -133,7 +138,7 @@
 </div>
 
 </div>
-<div class="cartTable">
+<div class="cartTable logged-in">
   <table id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
     <thead>
       <tr>
