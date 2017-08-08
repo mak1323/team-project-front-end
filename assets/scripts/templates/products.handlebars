@@ -1,0 +1,30 @@
+{{#each products as |product|}}
+
+<!-- this is the handlebars for products when the page loads. Products will
+be displayed, through this mechanism, on the landingPage -->
+<tr>
+
+ <td><p>{{product.name}}</p></td>
+ <td><p>{{product.price}}</p></td>
+ <td><p>{{product.description}}</p></td>
+ <td><p>{{product.category}}</p></td>
+ <td><img src={{product.img_url}}></img></td>
+
+
+
+<td>
+  <form id="add-to-cart">
+    <fieldset>
+      <input value="{{product.id}}" class='text-field' type='hiden' name='id'><br> <br>
+      <input class='text-field' type='number' name='quantity' placeholder="qty"><br><br>
+      <button class="btn btn-primary btn-lg" type="submit">Add to Cart</button>
+    </fieldset><br>
+    <div></div>
+  </form>
+
+
+</td>
+</tr>
+
+
+{{/each}}
