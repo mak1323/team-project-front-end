@@ -19,6 +19,7 @@
       <div class='logo'>
         <h1>Fencer</h1>
         <h2>The one stop shop for galactic goods.</h2>
+        <h4 id="UiFailure"> </h4>
       </div>
       <div class="login-status">
       <div class="logged-out">
@@ -27,7 +28,7 @@
           <fieldset>
             <input id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]' value="b">
             <input id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]' value="b">
-            <button class="btn btn-primary btn-lg" type="submit">Sign in!</button>
+            <button id="showAllProductsOnSignIn" class="btn btn-primary btn-lg" type="submit">Sign in!</button>
           </fieldset>
         </form>
         <p class="signup-prompt">Don't have an account?</p>
@@ -94,10 +95,10 @@
 
 <div class="landingPage">
   <!-- add content to landing page here -->
-  <button id="indexProducts" class="btn"> Show All Products </button>
   <button id="orderHistoryButton" class="btn"> Order History </button>
   <button id="shoppingCartButton" class="btn"> Shopping Cart </button>
-  <div class="productList">
+  <!--  the class "logged-in" is what hides the product list when a user signs out, it is located in the auth/ui-->
+  <div class="productList logged-in">
     <table id="productTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
       <thead>
         <tr>
@@ -132,7 +133,7 @@
 </div>
 
 </div>
-<div class="shoppingCart">
+<div class="cartTable">
   <table id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
     <thead>
       <tr>
