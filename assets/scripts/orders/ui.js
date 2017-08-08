@@ -5,6 +5,7 @@ const showAllOrdersSuccess = function (data) {
   console.table(data)
   const showOrdersHTML = showOrdersTemplate({ orders: data.orders })
   $('.cartTable').show()
+  $('#cartTable').DataTable()
   $('#cartTable tbody').empty()
   $('#cartTable tbody').append(showOrdersHTML)
   $('.landingPage').hide()

@@ -140,7 +140,7 @@
 </div>
 
 <div class="cartTable logged-in">
-  <table id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
+  <table align="center" id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
     <thead>
       <tr>
         <th data-field="itemName" data-sortable="true">
@@ -155,12 +155,57 @@
         <th data-field="edit-delete" data-sortable="false">
           Remove Item
         </th>
+        <th>
+          <div class="checkout pull-right">
+            <script src="https://checkout.stripe.com/checkout.js"></script>
+
+            <button id="customButton">Purchase</button>
+
+            <script>
+            var handler = StripeCheckout.configure({
+              key: 'pk_test_7fQwskkIwuWNEkWfcIyJZJKS',
+              image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+              locale: 'auto',
+              token: function(token) {
+                console.log(token.id)
+                // You can access the token ID with `token.id`.
+                // Get the token ID to your server-side code for use.
+              }
+            });
+            document.getElementById('customButton').addEventListener('click', function(e) {
+              // Open Checkout with further options:
+              handler.open({
+                name: 'Demo Site',
+                description: '2 widgets',
+                amount: 2000
+              });
+              e.preventDefault();
+            });
+
+            // Close Checkout on page navigation:
+            window.addEventListener('popstate', function() {
+              handler.close();
+            });
+            </script>
+          </div>
+
+        </th>
       </tr>
     </thead>
     <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
     <tbody>
     </tbody>
+    <tfoot>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total: {{total interpolation goes here}}</th>
+    </tr>
+</tfoot>
   </table>
+
 </div>
 
 

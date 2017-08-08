@@ -27,7 +27,7 @@ const showAllProductsSuccess = function (data) {
 }
 
 const showAllProductsFailure = function () {
-  $('#UiFailure').text('something went wrong')
+  // $('#UiFailure').text('something went wrong')
 }
 
 module.exports = {
