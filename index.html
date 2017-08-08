@@ -97,6 +97,38 @@
   <button id="indexProducts" class="btn"> Show All Products </button>
   <button id="orderHistoryButton" class="btn"> Order History </button>
   <button id="shoppingCartButton" class="btn"> Shopping Cart </button>
+  <div class="productList">
+    <table id="productTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
+      <thead>
+        <tr>
+          <th data-field="image" data-sortable="false">
+            Image
+          </th>
+          <th data-field="name" data-sortable="true">
+            Name
+          </th>
+          <th data-field="price" data-sortable="true">
+            Price
+          </th>
+          <th data-field="category" data-sortable="true">
+            Category
+          </th>
+          <th data-field="description" data-sortable="false">
+            Description
+          </th>
+          <th data-field="rating" data-sortable="false">
+            Rating
+          </th>
+          <th data-field="edit-delete" data-sortable="false">
+            Add/Remove From Cart
+          </th>
+        </tr>
+      </thead>
+      <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 </div>
