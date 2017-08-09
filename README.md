@@ -1,12 +1,12 @@
 Fencer - The one stop shop for galactic goods
 
-This is a e-commerce site project.  The goals for the project are to create a site where you can place orders, use the payment service Stipe to process payemnts, and see a list of past orders.
+This is a e-commerce site project.  The goals for the project are to create a site where you can place orders, use the payment service Stipe to process payemnts, and see a list of past orders. Our theme for this project site are itmes you could by if you were a character in a sci-fi universe.
 
-The depolyed site can be found at:
+The depolyed site can be found at: https://heroku-complex.github.io/team-project-front-end/
 
-The backend repository can be found at:
+The backend repository can be found at: https://github.com/Heroku-Complex/team-project-front-end
 
-The deployed back end cand be found at:
+The deployed back end cand be found at: https://mudabish.herokuapp.com/
 
 
 PLANNING:
@@ -33,4 +33,12 @@ Our last step for the planning phase was discussing roles and goals for the spri
 WORKFLOW:
 We divided tasks and started work on back end and front end repositories to help avoid team members working in the same files.  We worked to get minimum frameworks of code in each so that we could have code to work with in both places to start testing code.
 
-Once we had starter code, a pair of us started working on implementing Stripe payment system into our site.  Despite really good docs, this was one of the most challenging aspects of the project.  There are many ways to use Stripe and it was difficult for us to find a cohesive flow of code.  In addition, Stripe first sends a token before the POST request that needs to be included in the POST request.  The Dashboard function of the site 
+Once we had starter code, a pair of us started working on implementing Stripe payment system into our site.  Despite really good docs, this was one of the most challenging aspects of the project.  There are many ways to use Stripe and it was difficult for us to find a cohesive flow of code.  In addition, Stripe first sends a token before the POST request that needs to be included in the POST request.  The Dashboard function of the site is amazing and there is very, very little that needs to be done to set up your account there.
+
+Managing pull requests and merges was another challenge we faced.  Despite our careful planning we still encountered conflicts.  We found the manage conflicts feature very helpful in getting us sorted out.  In the final stages of the project we all worked from one computer to minimize creating new bugs when fixing old ones.
+
+THINGS TO WORK ON:
+  * Beautifying the site.
+  * Adding category tabs
+  * Adding a search function.
+  * Putting in more details for purchase, like billing and shipping addresses.
