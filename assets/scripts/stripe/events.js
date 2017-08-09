@@ -25,7 +25,8 @@ window.addEventListener('popstate', function () {
 
 const handleToken = function (token) {
   // pull amount here from store.amount
-  token.amount = store.amount
+  token.amount = 123
+  // token.amount = store.amount
   // takes token and sends it out to the API
   api.makeCharge(token)
   // on success

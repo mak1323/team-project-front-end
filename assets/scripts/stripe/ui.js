@@ -1,8 +1,13 @@
 'use strict'
-
+const store = require('../store')
 // on successful response of api.
 const onStripeAPISuccess = (data) => {
-  console.log('success', data)
+  store.proofOfSale = {
+    'id': data.id,
+    'amount': data.amount / 100,
+    'currency': data.currency,
+    'status': data.status
+  }
   // response data will go here
 }
 
