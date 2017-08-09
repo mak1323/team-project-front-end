@@ -141,33 +141,27 @@
     </div>
   </div>
 
-  <div class="cartTable logged-in">
-    <table id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
-      <thead>
-        <tr>
-          <th data-field="itemName" data-sortable="true">
-            Item
-          </th>
-          <th data-field="price" data-sortable="true">
-            Price
-          </th>
-          <th data-field="quantity" data-sortable="true">
-            Quantity
-          </th>
-          <th data-field="edit-delete" data-sortable="false">
-            Remove Item
-          </th>
-        </tr>
-      </thead>
-      <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
-      <tbody>
-      </tbody>
-    </table>
+</div>
+</header>
+
+<form id="updateCart">
+  <fieldset>
+    <input id="updateCart-id" class='pop-up-fields text-field' type="hidden" name='order[id]'>
+    <input class='pop-up-fields text-field' type="hidden" value="1990/01/01" name='order[date_placed]'>
+    <input class='pop-up-fields text-field' type="hidden" value="false" name='order[isOpen]'>
+    <input id="updateCart-userid" class='pop-up-fields text-field' type="text" name='order[user_id]'>
+  </fieldset>
+</form>
+
+<div class="landingPage">
+  <!-- add content to landing page here -->
+  <button id="indexProducts" class="btn"> Show All Products </button>
+  <button id="orderHistoryButton" class="btn"> Order History </button>
+  <button id="shoppingCartButton" class="btn"> Shopping Cart </button>
+  <div class="productList">
+    <table id="productTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
 
 
-
-
-  </div>
 
 
 <div class="cartTable logged-in">
