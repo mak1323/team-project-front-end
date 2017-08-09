@@ -170,40 +170,51 @@
   </div>
 
 
+<div class="cartTable logged-in">
+  <table align="center" id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
+    <thead>
+      <tr>
+        <th data-field="itemName" data-sortable="true">
+          Item
+        </th>
+        <th data-field="price" data-sortable="true">
+          Price
+        </th>
+        <th data-field="quantity" data-sortable="true">
+          Quantity
+        </th>
+        <th data-field="edit-delete" data-sortable="false">
+          Remove Item
+        </th>
+        <th>
+          <div class="checkout pull-right">
+          
+        </th>
+      </tr>
+    </thead>
+    <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
+    <tbody>
+    </tbody>
+    <tfoot>
+    <tr>
+        <!-- <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total: {{total interpolation goes here}}</th>
+    </tr>-->
+</tfoot>
+  </table>
+
+</div>
+
   <div class="payment">
     <div class="stripe-checkout">
       <script src="https://checkout.stripe.com/checkout.js"></script>
       <button type="button" id="buttonCheckout" class="btn btn-primary">Checkout</button>
       <div id="confirm-purchase" class="purchaseConfirm"></div>
     </div>
-    <!-- <script src="https://checkout.stripe.com/checkout.js"></script>
-
-    <button id="customButton">Purchase</button>
-
-    <script>
-      const handler = StripeCheckout.configure({
-        key: 'pk_test_7fQwskkIwuWNEkWfcIyJZJKS',
-        image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
-        locale: 'auto',
-        token: function(token) {
-          document.getElementById('storeHTML').value = token.id
-        }
-      });
-      document.getElementById('customButton').addEventListener('click', function(e) {
-        // Open Checkout with further options:
-        handler.open({
-          name: 'Fencer',
-          description: '2 widgets',
-          amount: 2000
-        });
-        e.preventDefault();
-      });
-
-      // Close Checkout on page navigation:
-      window.addEventListener('popstate', function() {
-        handler.close();
-      });
-    </script> -->
+   
 
   </div>
 
