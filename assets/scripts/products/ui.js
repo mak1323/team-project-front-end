@@ -1,5 +1,4 @@
 'use strict'
-// const store = require('../store')
 const showProductsTemplate = require('../templates/products.handlebars')
 
 // This variable represents the array of products that will be patched into the
@@ -15,7 +14,7 @@ const onAddItemToOrder = function (event) {
   const item = [$(this).closest('form').find("input[name='id']").val(), $(this).closest('form').find("input[name='quantity']").val()]
   shoppingCart.push(item)
   console.log(shoppingCart)
-  console.log()
+  // orders[orders.length - 1].products = shoppingCart
 }
 
 const showAllProductsSuccess = function (data) {
@@ -28,6 +27,7 @@ const showAllProductsSuccess = function (data) {
 }
 
 const showAllProductsFailure = function () {
+  // $('#UiFailure').text('something went wrong')
 }
 
 module.exports = {
