@@ -19,13 +19,14 @@ const showAllOrders = function (data) {
 // is automatically triggered when an order is submitted.
 // this is the api call to handle when a product is added to the shoppingCart
 const addOrder = function (data) {
+  data.orders.products = cart.cart
   return $.ajax({
     url: config.apiOrigin + '/orders',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: JSON.stringify(data)
   })
 }
 
@@ -34,10 +35,11 @@ const addOrder = function (data) {
 // This also fires when you submit an order, it sets the date the order was
 // placed and it changes the isOpen value to false.
 const updateOrder = function (data) {
-  data.orders.products = cart.cart
-  JSON.stringify(data)
+  console.log(cart)
+  console.log(data)
+  data.order.products = cart
   return $.ajax({
-    url: config.apiOrigin + '/orders/' + data.orders.id,
+    url: config.apiOrigin + '/orders/' + data.order.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

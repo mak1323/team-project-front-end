@@ -6,7 +6,6 @@ const orderApi = require('../orders/api')
 
 // This variable represents the array of products that will be patched into the
 // active order.
-const shoppingCart = []
 let cartID
 // When a user adds an item to an order, this will pass the item's id and the
 // quanity value the user entered into an array and pushes it to the shopping
@@ -18,9 +17,7 @@ const onAddItemToCart = function (event) {
     product_id: $(this).closest('form').find("input[name='id']").val(),
     quantity: $(this).closest('form').find("input[name='quantity']").val()
   }
-  shoppingCart.push(item)
-  console.log(shoppingCart)
-  cart.cart = shoppingCart
+  cart.push(item)
   orderApi.showAllOrders()
     .then(updateCart)
 }
@@ -32,7 +29,7 @@ const getCartId = function (item) {
 }
 
 const getCartArray = function () {
-  return shoppingCart
+  return cart
 }
 
 const updateCart = function (data) {
@@ -40,9 +37,6 @@ const updateCart = function (data) {
   orders.forEach(getCartId)
   console.log(cartID)
   $('#updateCart-id').val(cartID)
-  console.log(shoppingCart)
-  JSON.stringify(shoppingCart)
-  $('#updateCart-products').val(shoppingCart)
   $('#updateCart-userid').val(store.user.id)
   console.log(store.user.id)
   $('#updateCart').submit()
