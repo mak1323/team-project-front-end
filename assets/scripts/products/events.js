@@ -15,8 +15,14 @@ const onProductsMenuButton = () => {
   $('.landingPage').show()
   $('.cartTable').hide()
 }
+const onShoppingCartMenuButton = () => {
+  $('.landingPage').hide()
+  $('.cartTable').show()
+}
+
 const addHandlers = () => {
   $('#returnToProducts').on('click', onProductsMenuButton)
+  $('#shoppingCartButton').on('click', onShoppingCartMenuButton)
 }
 
 module.exports = {
