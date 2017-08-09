@@ -19,7 +19,7 @@ const onAddOrder = function (event) {
 const onUpdateOrder = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  api.updateQuantity(data)
+  api.updateOrder(data)
     .then(ui.updateOrderSuccess)
     .catch(ui.updateOrderFailure)
 }
@@ -39,7 +39,7 @@ const addHandlers = () => {
   $('#orderHistoryButton').on('click', onShowAllOrders)
   $('#shoppingCartButton').on('click', onShowAllOrders)
   $('').on('click', onAddOrder)
-  $('').on('click', onUpdateOrder)
+  $('#updateCart').on('submit', onUpdateOrder)
 }
 module.exports = {
   addHandlers

@@ -2,6 +2,7 @@
 
 const config = require('../config')
 const store = require('../store')
+const cart = require('../cart')
 
 // order history
 const showAllOrders = function (data) {
@@ -32,10 +33,11 @@ const addOrder = function (data) {
 // in the shoppingCart.
 // This also fires when you submit an order, it sets the date the order was
 // placed and it changes the isOpen value to false.
-const updateOrder = function (order) {
-  const data = order
+const updateOrder = function (data) {
+  data.orders.products = cart.cart
+  JSON.stringify(data)
   return $.ajax({
-    url: config.apiOrigin + '/orders/' + order.id,
+    url: config.apiOrigin + '/orders/' + data.orders.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

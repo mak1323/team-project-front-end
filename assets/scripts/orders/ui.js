@@ -23,8 +23,8 @@ const addOrderFailure = function () {
 
 }
 
-const updateOrderSuccess = function () {
-
+const updateOrderSuccess = function (data) {
+  console.log(data)
 }
 const updateOrderFailure = function () {
 
