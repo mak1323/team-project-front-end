@@ -12,8 +12,8 @@ const onStripeAPISuccess = (data) => {
   // response data will go here
   console.log('success', data)
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
-  api.addOrder()
-
+  // api.addOrder()
+  // want to create a new order after the payment is successful && the order is posted to mongodb
 }
 
 // on failed response
