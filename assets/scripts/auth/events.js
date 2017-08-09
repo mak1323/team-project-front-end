@@ -3,14 +3,14 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const productsApi = require('../products/api')
+const productsUi = require('../products/ui')
 
 const onSignUp = (event) => {
   event.preventDefault()
   console.log(event.target)
   console.log('testing')
   const data = getFormFields(event.target)
-  // $('#signin-email').val(data.credentials.email)
-  // $('#signin-pw').val(data.credentials.password)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -22,6 +22,9 @@ const onSignIn = (event) => {
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
+    .then(productsApi.showAllProducts)
+    .then(productsUi.showAllProductsSuccess)
+    .catch(productsUi.showAllProductsFailure)
 }
 
 const onSignOut = (event) => {

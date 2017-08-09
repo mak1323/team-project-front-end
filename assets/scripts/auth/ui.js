@@ -2,7 +2,6 @@
 
 const store = require('../store')
 // if we use handlebars replace x with filename
-// const showxTemplate = require('./templates/x.handlebars')
 
 const signUpSuccess = (data) => {
   $('#signUpModal').modal('hide')

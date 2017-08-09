@@ -1,6 +1,8 @@
 'use strict'
+
 const store = require('../store')
 const cart = require('../cart')
+
 const showProductsTemplate = require('../templates/products.handlebars')
 const orderApi = require('../orders/api')
 
@@ -13,6 +15,7 @@ let cartID
 const onAddItemToCart = function (event) {
   console.log(event)
   event.preventDefault()
+
   const item = {
     product_id: $(this).closest('form').find("input[name='id']").val(),
     quantity: $(this).closest('form').find("input[name='quantity']").val()
@@ -40,6 +43,7 @@ const updateCart = function (data) {
   $('#updateCart-userid').val(store.user.id)
   console.log(store.user.id)
   $('#updateCart').submit()
+
 }
 
 const showAllProductsSuccess = function (data) {
@@ -52,6 +56,7 @@ const showAllProductsSuccess = function (data) {
 }
 
 const showAllProductsFailure = function () {
+  // $('#UiFailure').text('something went wrong')
 }
 
 module.exports = {

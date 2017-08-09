@@ -1,17 +1,15 @@
 'use strict'
-// const showProductsTemplate = require('../templates/shoppingCart.handlebars')
-// const store = require('../store')
-
-// const showProductList = (data) => {
-//   const showProductsHTML = showProductsTemplate({ products: data.products })
-//   $('#shoppingCart').show()
-//   $('#shoppingCart tbody').empty()
-//   $('#shoppingCart tbody').append(showProductsHTML)
-// $('#library').DataTable()
-// }
+const showOrdersTemplate = require('../templates/orders.handlebars')
 
 const showAllOrdersSuccess = function (data) {
-  // showProductList()
+  console.table(data)
+  const showOrdersHTML = showOrdersTemplate({ orders: data.orders })
+  $('.cartTable').show()
+  $('#cartTable').DataTable()
+  $('#cartTable tbody').empty()
+  $('#cartTable tbody').append(showOrdersHTML)
+  $('.landingPage').hide()
+  // $('.addToCart').on('submit', onAddItemToOrder)
 }
 const showAllOrdersFailure = function () {
 }
