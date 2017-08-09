@@ -1,58 +1,58 @@
 'use strict'
 
-const store = require('../store')
-const cart = require('../cart')
+// const store = require('../store')
+// const cart = require('../cart')
 
 const showProductsTemplate = require('../templates/products.handlebars')
-const orderApi = require('../orders/api')
+const showCartTemplate = require('../templates/cart.handlebars')
+// const orderApi = require('../orders/api')
 
 // This variable represents the array of products that will be patched into the
 // active order.
-let cartID
+const cart = []
+let productData
 // When a user adds an item to an order, this will pass the item's id and the
 // quanity value the user entered into an array and pushes it to the shopping
 // cart array.
-const onAddItemToCart = function (event) {
-  console.log(event)
+const onAddItemToCartArray = function (event) {
   event.preventDefault()
-
-  const item = {
-    product_id: $(this).closest('form').find("input[name='id']").val(),
-    quantity: $(this).closest('form').find("input[name='quantity']").val()
-  }
+  const item = $(this).closest('form').find("input[name='id']").val()
   cart.push(item)
-  orderApi.showAllOrders()
-    .then(updateCart)
 }
 
-const getCartId = function (item) {
-  if (item.isOpen === true) {
-    cartID = item.id
-  }
+const pushItemsToCart = function () {
+  console.log('testing')
+  const showCartHTML = showCartTemplate({ products: productData.products })
+  $('.cartTable').show()
+  $('#productTable').hide()
+  $('.cartTable tbody').empty()
+  $('.cartTable tbody').append(showCartHTML)
 }
 
-const getCartArray = function () {
-  return cart
-}
+// const getCartId = function (item) {
+//   if (item.isOpen === true) {
+//     cartID = item.id
+//   }
+// }
 
-const updateCart = function (data) {
-  const orders = data.orders
-  orders.forEach(getCartId)
-  console.log(cartID)
-  $('#updateCart-id').val(cartID)
-  $('#updateCart-userid').val(store.user.id)
-  console.log(store.user.id)
-  $('#updateCart').submit()
-
-}
+// const updateCart = function (data) {
+//   const orders = data.orders
+//   orders.forEach(getCartId)
+//   console.log(cartID)
+//   $('#updateCart-id').val(cartID)
+//   $('#updateCart-userid').val(store.user.id)
+//   console.log(store.user.id)
+//   $('#updateCart').submit()
+// }
 
 const showAllProductsSuccess = function (data) {
-  console.table(data)
   const showProductsHTML = showProductsTemplate({ products: data.products })
   $('#productTable').show()
   $('#productTable tbody').empty()
   $('#productTable tbody').append(showProductsHTML)
-  $('.addToCart').on('submit', onAddItemToCart)
+  $('.addToCart').on('submit', onAddItemToCartArray)
+  productData = data
+  $('#shoppingCartButton').on('click', pushItemsToCart)
 }
 
 const showAllProductsFailure = function () {
@@ -61,6 +61,5 @@ const showAllProductsFailure = function () {
 
 module.exports = {
   showAllProductsSuccess,
-  showAllProductsFailure,
-  getCartArray
+  showAllProductsFailure
 }

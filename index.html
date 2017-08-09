@@ -151,7 +151,7 @@
     <input id="updateCart-id" class='pop-up-fields text-field' type="hidden" name='order[id]'>
     <input class='pop-up-fields text-field' type="hidden" value="1990/01/01" name='order[date_placed]'>
     <input class='pop-up-fields text-field' type="hidden" value="false" name='order[isOpen]'>
-    <input id="updateCart-userid" class='pop-up-fields text-field' type="text" name='order[user_id]'>
+    <input id="updateCart-userid" class='pop-up-fields text-field' type="hidden" name='order[user_id]'>
   </fieldset>
 </form>
 
@@ -162,8 +162,11 @@
   <table id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
     <thead>
       <tr>
+        <th data-field="itemImage" data-sortable="false">
+          Image
+        </th>
         <th data-field="itemName" data-sortable="true">
-          Item
+          Name
         </th>
         <th data-field="price" data-sortable="true">
           Price
