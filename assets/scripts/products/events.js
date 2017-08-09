@@ -12,9 +12,12 @@ const onShowAllProducts = function (event) {
 }
 
 const onProductsMenuButton = () => {
+  console.log('products here')
   $('.landingPage').show()
+  $('#productTable').show()
   $('.cartTable').hide()
 }
+
 const onShoppingCartMenuButton = () => {
   $('.landingPage').hide()
   $('.cartTable').show()

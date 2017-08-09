@@ -18,13 +18,20 @@ const onAddItemToCartArray = function (event) {
   event.preventDefault()
   const item = $(this).closest('form').find("input[name='id']").val()
   cart.push(item)
+  console.log(cart)
 }
 
 const pushItemsToCart = function () {
-  console.log('testing')
-  const showCartHTML = showCartTemplate({ products: productData.products })
-  $('.cartTable').show()
-  $('#productTable').hide()
+  console.log(productData.products)
+  const filteredData = productData.products.filter(function (item) {
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i] === item.id) {
+        return item
+      }
+    }
+  })
+  console.log(filteredData)
+  const showCartHTML = showCartTemplate({ products: filteredData })
   $('.cartTable tbody').empty()
   $('.cartTable tbody').append(showCartHTML)
 }
