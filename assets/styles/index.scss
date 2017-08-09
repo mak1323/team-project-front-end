@@ -1,6 +1,9 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+th {
+  white-space: nowrap;
+}
 /* Dropdown Button */
 .dropbtn {
   font-family: 'Open Sans';
@@ -12,8 +15,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin: 3px 0;
   padding: 5px 9px;
   box-shadow: 3px 3px rgba(0, 0, 0, .3);
-    cursor: pointer;
+  cursor: pointer;
 }
+
 #customButton {
   font-family: 'Open Sans';
   background-color: #F1F1F1;
@@ -24,325 +28,321 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   margin: 3px 0;
   padding: 5px 9px;
   box-shadow: 3px 3px rgba(0, 0, 0, .3);
-    cursor: pointer;
+  cursor: pointer;
 }
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
-
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
 }
-
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
-
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #f1f1f1}
-
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
-    display: block;
+  display: block;
 }
-
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
-    background-color: #CDE25F;
+  background-color: #CDE25F;
 }
 
 .main-wrapper {
- font-family: 'Open Sans';
- color: black;
- font-size: 18px;
- line-height: 1.6;
- margin: 15px auto;
- padding: -20px 10px 100px 10px;
- text-align: center;
+  font-family: 'Open Sans';
+  color: black;
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 15px auto;
+  padding: -20px 10px 100px;
+  text-align: center;
 }
 
 .logo {
- padding: 10px;
- float: left;
- display: inline;
- text-shadow: 3px 3px rgba(0, 0, 0, .3);
+  padding: 10px;
+  float: left;
+  display: inline;
+  text-shadow: 3px 3px rgba(0, 0, 0, .3);
 }
 
 h1 {
- color: #CDE25F;
- font-family: 'Play';
- font-size: 64px;
+  color: #CDE25F;
+  font-family: 'Play';
+  font-size: 64px;
 }
 
 h2 {
- color: #3D3B4C;
- font-family: 'Play';
- font-size: 36px;
+  color: #3D3B4C;
+  font-family: 'Play';
+  font-size: 36px;
 }
 
 h3 {
- color: #4d4d4d;
- font-family: 'Play';
- font-size: 20px;
+  color: #4d4d4d;
+  font-family: 'Play';
+  font-size: 20px;
 }
 
 .display {
- color: #216778;
- font-size: 24px;
- text-align: left;
+  color: #216778;
+  font-size: 24px;
+  text-align: left;
 }
 
 .header {
- z-index: 100;
- background-color: #3D3B4C;
- padding: 20px;
- height: 200px;
- width: auto;
+  z-index: 100;
+  background-color: #3D3B4C;
+  padding: 20px;
+  height: 200px;
+  width: auto;
 }
 
 .login-status {
- text-align: right;
+  text-align: right;
 }
 
 .btn {
- font-family: 'Open Sans';
- background-color: #F1F1F1;
- border: none;
- border-radius: 10px;
- color: #3D3B4C;
- font-size: 14px;
- margin: 3px 0;
- padding: 5px 9px;
- box-shadow: 3px 3px rgba(0, 0, 0, .3);
+  font-family: 'Open Sans';
+  background-color: #F1F1F1;
+  border: none;
+  border-radius: 10px;
+  color: #3D3B4C;
+  font-size: 14px;
+  margin: 3px 0;
+  padding: 5px 9px;
+  box-shadow: 3px 3px rgba(0, 0, 0, .3);
 }
 
 .btn:hover {
- background-color: #CDE25F;
- color: #3D3B4C;
+  background-color: #CDE25F;
+  color: #3D3B4C;
 }
 
+.changePwError,
 .greeting,
 .signInError,
-.signUpError,
-.changePwError {
- font-family: 'Play';
- font-size: 16px;
- color: #3D3B4C;
- font-weight: 800;
+.signUpError {
+  font-family: 'Play';
+  font-size: 16px;
+  color: #3D3B4C;
+  font-weight: 800;
 }
 
 .greeting {
- color: #CDE25F;
+  color: #CDE25F;
 }
 
 .page-bottom {
- font-family: 'Open Sans';
- text-align: center;
- background-color: #3D3B4C;
- padding: 20px;
- color: white;
- position: fixed;
- bottom: 0;
- left: 0;
- right: 0;
+  font-family: 'Open Sans';
+  text-align: center;
+  background-color: #3D3B4C;
+  padding: 20px;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .text-field,
 input {
- border: 1px solid #3D3B4C;
- border-radius: 20px;
- padding: 6px;
+  border: 1px solid #3D3B4C;
+  border-radius: 20px;
+  padding: 6px;
 }
 
 label {
- font-family: 'Open Sans';
+  font-family: 'Open Sans';
 }
 
 .pop-up-fields {
- border: 1px solid #216778;
+  border: 1px solid #216778;
 }
-
 @media (max-width: 400px) {
- .main-wrapper {
-   margin: 0;
- }
- .display {
-   font-size: 16px;
- }
+  .main-wrapper {
+    margin: 0;
+  }
 
- .login-status {
-   padding: 10px 20px 10px 20px;
- }
+  .display {
+    font-size: 16px;
+  }
+
+  .login-status {
+    padding: 10px 20px;
+  }
 }
 
 .logged-in {
- display: none;
+  display: none;
 }
 
 td {
- background-color: #FFFFFF;
- padding: 10px;
+  background-color: #FFFFFF;
+  padding: 10px;
 }
 
 th {
- background: #3D3B4C;
- color: #EAEAEA;
-
+  background: #3D3B4C;
+  color: #EAEAEA;
 }
 
 table {
- box-shadow: 3px 3px 10px rgba(0, 0, 0, .4);
- border: 4px solid #3D3B4C;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, .4);
+  border: 4px solid #3D3B4C;
 }
 
 .dataTables_wrapper {
- clear: both;
- float: left;
- width: 73%;
- margin: 10px 0 130px 0;
- overflow: auto;
+  clear: both;
+  float: left;
+  width: 73%;
+  margin: 10px 0 130px;
+  overflow: auto;
 }
 
 .playthrough-content {
- background-color: #FFFFFF;
- display: none;
- position: fixed;
- width: 25%;
- height: 64%;
- right: 15px;
- overflow: auto;
- padding: 20px;
- box-shadow: 3px 3px 10px rgba(0, 0, 0, .4);
- border: 6px solid #3D3B4C;
- border-radius: 20px;
+  background-color: #FFFFFF;
+  display: none;
+  position: fixed;
+  width: 25%;
+  height: 64%;
+  right: 15px;
+  overflow: auto;
+  padding: 20px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, .4);
+  border: 6px solid #3D3B4C;
+  border-radius: 20px;
 }
 
 .playthroughs-header {
- font-family: 'Play';
- font-size: 36px;
- padding: 5px;
- text-align: center;
- color: #3D3B4C;
+  font-family: 'Play';
+  font-size: 36px;
+  padding: 5px;
+  text-align: center;
+  color: #3D3B4C;
 }
 
 .table-data {
- color: #3D3B4C;
- text-align: left;
- vertical-align: center;
+  color: #3D3B4C;
+  text-align: left;
+  vertical-align: center;
 }
 
 .signup-prompt {
- color: #FAFAFA;
+  color: #FAFAFA;
 }
 
 .new-game-btn {
- padding-top: 18px;
- display: none;
- float: left;
- clear: both;
- margin: 10px 0;
+  padding-top: 18px;
+  display: none;
+  float: left;
+  clear: both;
+  margin: 10px 0;
 }
 
 .paginate_button {
- margin: 5px;
- color: #3D3B4C;
- font-weight: bold;
+  margin: 5px;
+  color: #3D3B4C;
+  font-weight: bold;
 }
 
 p {
- font-family: 'Open Sans';
- font-size: 16px;
+  font-family: 'Open Sans';
+  font-size: 16px;
 }
 
 .show-playthroughs {
- float: left;
- margin: 2px;
+  float: left;
+  margin: 2px;
 }
 
 .close-new-playthrough {
- display: none;
+  display: none;
 }
 
 .landing-page {
- text-align: center;
+  text-align: center;
 }
 
 .landing-page-image {
- z-index: 0;
- width: 30%;
+  z-index: 0;
+  width: 30%;
 }
 
 ::-webkit-scrollbar {
- width: 5px;
- height: 5px;
- border-radius: 5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-track {
- background-color: #FFFFFF;
- width: 5px;
- height: 5px;
- border-radius: 5px;
+  background-color: #FFFFFF;
+  width: 5px;
+  height: 5px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
- background-color: #3D3B4C;
- width: 3px;
- height: 3px;
- border-radius: 5px;
+  background-color: #3D3B4C;
+  width: 3px;
+  height: 3px;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-corner {
- background-color: #3D3B4C;
+  background-color: #3D3B4C;
 }
 
 ::-webkit-scrollbar-button {
- background-color: #3D3B4C;
+  background-color: #3D3B4C;
 }
 
 .add-playthrough {
- display: none;
+  display: none;
 }
 
 .delete-regret {
- margin: -57px 0 0 150px;
+  margin: -57px 0 0 150px;
 }
 
 .star-required {
- font-size: 10px;
- color: red;
- font-weight: bold;
+  font-size: 10px;
+  color: red;
+  font-weight: bold;
 }
 
 .error-msg {
- color: red;
+  color: red;
 }
 
 .sub-heading {
- margin: 0 auto;
- max-width: 60%;
- color: #0A0A0A;
+  margin: 0 auto;
+  max-width: 60%;
+  color: #0A0A0A;
 }
 
 .landing-page-btn {
- position: relative;
- z-index: 100;
- font-family: 'Play';
- font-size: 32px;
- padding: 10px;
- margin: 40px 0 -85px;
- color: white;
- background-color: #3D3B4C;
+  position: relative;
+  z-index: 100;
+  font-family: 'Play';
+  font-size: 32px;
+  padding: 10px;
+  margin: 40px 0 -85px;
+  color: white;
+  background-color: #3D3B4C;
 }
