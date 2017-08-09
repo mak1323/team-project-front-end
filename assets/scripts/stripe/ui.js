@@ -1,4 +1,5 @@
 'use strict'
+
 const store = require('../store')
 // on successful response of api.
 const onStripeAPISuccess = (data) => {
@@ -9,12 +10,16 @@ const onStripeAPISuccess = (data) => {
     'status': data.status
   }
   // response data will go here
+  console.log('success', data)
+  $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
+  api.addOrder()
+
 }
 
 // on failed response
 const onStripeAPIFail = (data) => {
   console.log('fail', data)
-  // response data will go here
+  $('#UiFailure').text('Please try another credit card').fadeIn('fast').delay(3000).fadeOut('slow')
 }
 
 module.exports = {

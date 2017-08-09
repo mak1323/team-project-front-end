@@ -43,7 +43,6 @@ const updateCart = function (data) {
   $('#updateCart-userid').val(store.user.id)
   console.log(store.user.id)
   $('#updateCart').submit()
-
 }
 
 const showAllProductsSuccess = function (data) {
