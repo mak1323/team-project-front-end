@@ -293,7 +293,10 @@ p {
 .error-msg, #confirm-purchase {
   color: red;
 }
-
+.cartTable, .productList {
+  padding: 5px;
+  margin-bottom: 100px
+}
 .sub-heading {
   margin: 0 auto;
   max-width: 60%;
