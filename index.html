@@ -34,7 +34,7 @@
         <h1>Fencer</h1>
         <h2>The one stop shop for galactic goods.</h2>
         <h4 id="UiFailure"> </h4>
-        <h4 id="confirm-purchase" class="purchaseConfirm error-msg"></h4>
+        <h5 id="confirm-purchase" class="purchaseConfirm error-msg"></h5>
 </div>
     <div class="login-status">
       <div class="logged-out">
@@ -142,6 +142,7 @@
         <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
         <tbody>
         </tbody>
+        <tfoot> </tfoot>
       </table>
     </div>
   </div>
@@ -159,7 +160,7 @@
 
 
 <!-- this is the shopping cart -->
-<div class="cartTable logged-in">
+<div class="cartTable">
   <div class="checkoutButton">
     <div class="checkout pull-right">
       <div class="payment">
@@ -194,16 +195,13 @@
         <th></th>
         <th></th>
         <th></th>
-        <th></th>
         <th>Total:</th>
+        <th>
+          <script src="https://checkout.stripe.com/checkout.js"></script>
+          <button type="button" id="buttonCheckout" class="btn btn-primary pull-right">Checkout</button>
+        </th>
     </tr>
-
-
-
-
 </tfoot>
-<script src="https://checkout.stripe.com/checkout.js"></script>
-<button type="button" id="buttonCheckout" class="btn btn-primary pull-right">Checkout</button>
   </table>
 
 
