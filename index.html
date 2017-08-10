@@ -145,6 +145,25 @@
     </div>
   </div>
 
+  <div class="previousOrderList logged-in">
+    <table id="previousOrderTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
+      <thead>
+        <tr>
+          <th data-field="date" data-sortable="true">
+            Date
+          </th>
+          <th data-field="items" data-sortable="false">
+            Items
+          </th>
+          <th data-field="total" data-sortable="true">
+            Total
+        </tr>
+      </thead>
+      <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 
 <form id="updateCart">
   <fieldset>
