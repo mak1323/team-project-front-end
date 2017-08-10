@@ -23,6 +23,29 @@ window.addEventListener('popstate', function () {
   handler.close()
 })
 
+const onFinalizeOrder = function () {
+  const proof = store.proofOfSale
+  const data = {
+    "order": {
+  "date_placed": "2017-08-10",
+  "salesProof": {
+    "id": proof.id,
+    "amount": proof.amount,
+    "currency": proof.currency,
+    "status": proof.status
+    },
+  "products": [{"product_id": "598b85468dea444f8da1498d", "quantity": 2},{"product_id": "598b85468dea444f8da1498d", "quantity": 2}],
+  "isOpen": "false",
+  "_owner": "598b57f6077a458074bf0afe"
+  }
+}
+  const id = "598bafec699c6896d5fff2a1"
+  console.log(data)
+  api.finalizeOrder(data, id)
+  .then(ui.onFinalizePaymentSuccess)
+  .catch(ui.onFinalizePaymentFailure)
+}
+
 const handleToken = function (token) {
   // pull amount here from store.amount
   token.amount = 123
@@ -31,13 +54,14 @@ const handleToken = function (token) {
   api.makeCharge(token)
   // on success
     .then(ui.onStripeAPISuccess)
+    .then(onFinalizeOrder)
 }
 
 const shutUpAndPayTheMan = function (event) {
-  if (store.amount === undefined || store.amount === 0) {
-    $('.purchaseConfirm').text('Please put something in the cart before making a purchase.').fadeIn('fast').delay(3000).fadeOut('slow')
-    return
-  } else {
+  // if (store.amount === undefined || store.amount === 0) {
+  //   $('.purchaseConfirm').text('Please put something in the cart before making a purchase.').fadeIn('fast').delay(3000).fadeOut('slow')
+  //   return
+  // } else {
     handler.open({
       name: 'Fencer.com',
       description: 'Presentation Test Sales',
@@ -51,7 +75,7 @@ const shutUpAndPayTheMan = function (event) {
     // CATCHCATCHCATCH-drop token and warn the user.
     })
   }
-}
+
 const addHandlers = () => {
   $('#buttonCheckout').on('click', shutUpAndPayTheMan)
 }
