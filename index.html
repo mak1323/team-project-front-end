@@ -34,19 +34,20 @@
         <h1>Fencer</h1>
         <h2>The one stop shop for galactic goods.</h2>
         <h4 id="UiFailure"> </h4>
+        <h5 id="confirm-purchase" class="purchaseConfirm error-msg"></h5>
 </div>
     <div class="login-status">
       <div class="logged-out">
         <div class="signInError"></div>
         <form id="sign-in">
           <fieldset>
-            <input id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]'>
-            <input id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]'>
+            <input value="b"id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]'>
+            <input value="b" id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]'>
             <button id="showAllProductsOnSignIn" class="btn btn-primary btn-lg" type="submit">Sign in!</button>
           </fieldset>
         </form>
         <p class="signup-prompt">Don't have an account?</p>
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
+        <button id="signup" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
       Sign Up!
     </button><br><br>
 
@@ -141,10 +142,30 @@
         <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
         <tbody>
         </tbody>
+        <tfoot> </tfoot>
       </table>
     </div>
   </div>
 
+  <div class="previousOrderList logged-in">
+    <table id="previousOrderTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
+      <thead>
+        <tr>
+          <th data-field="date" data-sortable="true">
+            Date
+          </th>
+          <th data-field="items" data-sortable="false">
+            Items
+          </th>
+          <th data-field="total" data-sortable="true">
+            Total
+        </tr>
+      </thead>
+      <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
+      <tbody>
+      </tbody>
+    </table>
+  </div>
 
 <form id="updateCart">
   <fieldset>
@@ -158,7 +179,13 @@
 
 
 <!-- this is the shopping cart -->
-<div class="cartTable logged-in">
+<div class="cartTable">
+  <div class="checkoutButton">
+    <div class="checkout pull-right">
+      <div class="payment">
+      </div>
+    </div>
+   </div>
   <table id="cartTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
     <thead>
       <tr>
@@ -177,10 +204,6 @@
         <th data-field="edit-delete" data-sortable="false">
           Remove Item
         </th>
-        <th>
-
-
-        </th>
       </tr>
     </thead>
     <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
@@ -191,29 +214,25 @@
         <th></th>
         <th></th>
         <th></th>
-        <th></th>
         <th>Total:</th>
+        <th>
+          <script src="https://checkout.stripe.com/checkout.js"></script>
+          <button type="button" id="buttonCheckout" class="btn btn-primary pull-right">Checkout</button>
+        </th>
     </tr>
 </tfoot>
   </table>
 
-  <div class="checkout pull-right">
-    <div class="payment">
-      <div class="stripe-checkout">
-        <script src="https://checkout.stripe.com/checkout.js"></script>
-        <button type="button" id="buttonCheckout" class="btn btn-primary">Checkout</button>
-        <div id="confirm-purchase" class="purchaseConfirm"></div>
-      </div>
-    </div>
-  </div>
+
 </div>
 
 
 
-<!-- <div class="pastOrders"></div> -->
+<div class="pastOrders"></div>
+
 
   <div class="page-bottom">
-    <p>Created By us</p>
+    <p>Created By Myles Kaeding, Nicholas Piaskoski, Brad Leyden, and Ryan Koch</p>
     <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
         target="_blank">CC 3.0 BY</a></div>
 

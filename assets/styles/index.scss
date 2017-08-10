@@ -215,27 +215,6 @@ table {
   overflow: auto;
 }
 
-.playthrough-content {
-  background-color: #FFFFFF;
-  display: none;
-  position: fixed;
-  width: 25%;
-  height: 64%;
-  right: 15px;
-  overflow: auto;
-  padding: 20px;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, .4);
-  border: 6px solid #3D3B4C;
-  border-radius: 20px;
-}
-
-.playthroughs-header {
-  font-family: 'Play';
-  font-size: 36px;
-  padding: 5px;
-  text-align: center;
-  color: #3D3B4C;
-}
 
 .table-data {
   color: #3D3B4C;
@@ -247,13 +226,6 @@ table {
   color: #FAFAFA;
 }
 
-.new-game-btn {
-  padding-top: 18px;
-  display: none;
-  float: left;
-  clear: both;
-  margin: 10px 0;
-}
 
 .paginate_button {
   margin: 5px;
@@ -266,14 +238,6 @@ p {
   font-size: 16px;
 }
 
-.show-playthroughs {
-  float: left;
-  margin: 2px;
-}
-
-.close-new-playthrough {
-  display: none;
-}
 
 .landing-page {
   text-align: center;
@@ -326,10 +290,13 @@ p {
   font-weight: bold;
 }
 
-.error-msg {
+.error-msg, #confirm-purchase {
   color: red;
 }
-
+.cartTable, .productList {
+  padding: 5px;
+  margin-bottom: 100px
+}
 .sub-heading {
   margin: 0 auto;
   max-width: 60%;

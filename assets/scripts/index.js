@@ -10,7 +10,6 @@ const stripeEvents = require('./stripe/events')
 $(() => {
   setAPIOrigin(location, config)
   // when page loads cart table hides
-  $('.cartTable').hide()
   // adds event handlers for sign in, sign up, sign out, chng pwd
   authEvents.addAuthHandlers()
   orderEvents.addHandlers()

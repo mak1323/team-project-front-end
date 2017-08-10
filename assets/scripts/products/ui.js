@@ -9,7 +9,7 @@ const showCartTemplate = require('../templates/cart.handlebars')
 
 // This variable represents the array of products that will be patched into the
 // active order.
-const cart = []
+let cart = []
 let productData
 // When a user adds an item to an order, this will pass the item's id and the
 // quanity value the user entered into an array and pushes it to the shopping
@@ -19,6 +19,16 @@ const onAddItemToCartArray = function (event) {
   const item = $(this).closest('form').find("input[name='id']").val()
   cart.push(item)
   console.log(cart)
+}
+
+const removeFromCartArray = function (event) {
+  const newCart = cart.filter(function (item) {
+    if (item !== $(event.target).data('id')) {
+      return item
+    }
+  })
+  cart = newCart
+  pushItemsToCart()
 }
 
 const pushItemsToCart = function () {
@@ -34,6 +44,7 @@ const pushItemsToCart = function () {
   const showCartHTML = showCartTemplate({ products: filteredData })
   $('.cartTable tbody').empty()
   $('.cartTable tbody').append(showCartHTML)
+  $('.removeFromCart').on('click', removeFromCartArray)
 }
 
 // const getCartId = function (item) {
