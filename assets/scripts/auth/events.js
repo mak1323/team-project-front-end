@@ -8,11 +8,10 @@ const productsUi = require('../products/ui')
 
 const onSignUp = (event) => {
   event.preventDefault()
-  console.log(event.target)
-  console.log('testing')
   const data = getFormFields(event.target)
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .then(createNewCart)
     .catch(ui.signUpFailure)
 }
 

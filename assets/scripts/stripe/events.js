@@ -77,10 +77,10 @@ const shutUpAndPayTheMan = function (event) {
   //   $('.purchaseConfirm').text('Please put something in the cart before making a purchase.').fadeIn('fast').delay(3000).fadeOut('slow')
   //   return
   // } else {
-    handler.open({
-      name: 'Fencer.com',
-      description: 'Presentation Test Sales',
-      token: handleToken
+  handler.open({
+    name: 'Fencer.com',
+    description: 'Presentation Test Sales',
+    token: handleToken
     // first, get a token from card on stripe api
     // Then send api and pay data to the stripe api, full payment
     // Wait for confirmation
@@ -88,7 +88,7 @@ const shutUpAndPayTheMan = function (event) {
     // make a record of the purchase.
     // send confirmation
     // CATCHCATCHCATCH-drop token and warn the user.
-    })
+  })
   }
 
 const addHandlers = () => {
