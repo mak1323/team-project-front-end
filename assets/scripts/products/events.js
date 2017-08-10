@@ -16,16 +16,24 @@ const onProductsMenuButton = () => {
   $('.landingPage').show()
   $('#productTable').show()
   $('.cartTable').hide()
+  $('#previousOrderList').hide()
+}
+const onOrderHistoryButton = () => {
+  $('.landingPage').hide()
+  $('.cartTable').hide()
+  $('#previousOrderList').show()
 }
 
 const onShoppingCartMenuButton = () => {
   $('.landingPage').hide()
   $('.cartTable').show()
+  $('#previousOrderList').hide()
 }
 
 const addHandlers = () => {
   $('#returnToProducts').on('click', onProductsMenuButton)
   $('#shoppingCartButton').on('click', onShoppingCartMenuButton)
+  $('#orderHistoryButton').on('click', onOrderHistoryButton)
 }
 
 module.exports = {
