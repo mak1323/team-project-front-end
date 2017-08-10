@@ -21,7 +21,7 @@ const onProductsMenuButton = () => {
 const onOrderHistoryButton = () => {
   $('.landingPage').hide()
   $('.cartTable').hide()
-  $('#previousOrderList').show()
+  $('#previousOrderList').hide()
 }
 
 const onShoppingCartMenuButton = () => {

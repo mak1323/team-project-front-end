@@ -6,7 +6,7 @@ const showAllOrdersSuccess = function (data) {
   const showOrdersHTML = showOrdersTemplate({ orders: data.cart })
   $('.landingPage').hide()
   $('#cartTable').show()
-  $('#previousOrderTable').show()
+  $('#previousOrderTable').hide()
   // $('#previousOrderTable').empty()
   // $('#previousOrderTable').append(showOrdersHTML)
   // $('.addToCart').on('submit', onAddItemToOrder)

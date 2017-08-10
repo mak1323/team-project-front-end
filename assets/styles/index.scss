@@ -121,6 +121,9 @@ h3 {
   text-align: right;
 }
 
+.previousOrderList {
+  display: none;
+}
 .btn {
   font-family: 'Open Sans';
   background-color: #F1F1F1;
@@ -293,9 +296,11 @@ p {
 .error-msg, #confirm-purchase {
   color: red;
 }
+
 .cartTable,
 .productList,
 .previousOrderList {
+
   padding: 5px;
   margin-bottom: 100px
 }
