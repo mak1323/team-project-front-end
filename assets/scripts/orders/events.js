@@ -38,7 +38,7 @@ const onShowAllOrders = function (event) {
 const addHandlers = () => {
   $('#orderHistoryButton').on('click', onShowAllOrders)
   // $('#shoppingCartButton').on('click', onShowCart)
-  $('#signup').on('click', onAddOrder)
+  // $('#signup').on('click', onAddOrder)
   // $('#updateCart').on('submit', onUpdateOrder)
 }
 module.exports = {

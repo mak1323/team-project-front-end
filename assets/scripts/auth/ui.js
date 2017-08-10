@@ -40,6 +40,17 @@ const signOutSuccess = (data) => {
 const signOutFailure = () => {
 }
 
+const onCreateNewCartSuccess = function (data) {
+  console.log(data)
+  // response data will go here
+  console.log('success', data)
+  $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
+}
+
+const onCreateNewCartFailure = function () {
+
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -48,5 +59,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  onCreateNewCartSuccess,
+  onCreateNewCartFailure
 }
