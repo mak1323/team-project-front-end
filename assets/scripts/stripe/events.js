@@ -39,11 +39,25 @@ const onFinalizeOrder = function () {
   "_owner": "598b57f6077a458074bf0afe"
   }
 }
-  const id = "598bafec699c6896d5fff2a1"
+  const id = "598bb39e699c6896d5fff2a7"
   console.log(data)
   api.finalizeOrder(data, id)
   .then(ui.onFinalizePaymentSuccess)
   .catch(ui.onFinalizePaymentFailure)
+}
+
+const createNewCart = function () {
+  const data = {
+    "order": {
+  "date_placed": "2017-08-10",
+  "products": [{}],
+  "isOpen": "true",
+  "_owner": store.user.id
+  }
+}
+  api.createNewCart(data)
+  .then(ui.onCreateNewCartSuccess)
+  .catch(ui.onCreateNewCartFailure)
 }
 
 const handleToken = function (token) {
@@ -55,6 +69,7 @@ const handleToken = function (token) {
   // on success
     .then(ui.onStripeAPISuccess)
     .then(onFinalizeOrder)
+    .then(createNewCart)
 }
 
 const shutUpAndPayTheMan = function (event) {

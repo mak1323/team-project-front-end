@@ -23,9 +23,18 @@ const onFinalizeOrderSuccess = function (data) {
   // response data will go here
   console.log('success', data)
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
-
 }
 const onFinalizeOrderFailure = function () {
+
+}
+const onCreateNewCartSuccess = function (data) {
+  console.log(data)
+  // response data will go here
+  console.log('success', data)
+  $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
+}
+
+const onCreateNewCartFailure = function () {
 
 }
 
