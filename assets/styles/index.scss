@@ -122,8 +122,9 @@ h3 {
 }
 
 .previousOrderList {
-  display: none;
+  display: hidden;
 }
+
 .btn {
   font-family: 'Open Sans';
   background-color: #F1F1F1;
@@ -304,6 +305,7 @@ p {
   padding: 5px;
   margin-bottom: 100px
 }
+
 .sub-heading {
   margin: 0 auto;
   max-width: 60%;

@@ -45,6 +45,7 @@ const pushItemsToCart = function () {
   $('.cartTable tbody').empty()
   $('.cartTable tbody').append(showCartHTML)
   $('.removeFromCart').on('click', removeFromCartArray)
+  // $('#previousOrderTable').hide()
 }
 
 // const getCartId = function (item) {

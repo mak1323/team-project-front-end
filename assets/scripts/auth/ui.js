@@ -17,6 +17,7 @@ const signInSuccess = (data) => {
   store.user = data.user
   $('.logged-out').hide()
   $('.logged-in').show()
+  $('.previousOrderList').hide()
   $('.greeting').text('welcome back, ' + data.user.email)
 }
 
