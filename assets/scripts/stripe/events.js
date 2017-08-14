@@ -72,7 +72,7 @@ const handleToken = function (token) {
     .then(createNewCart)
 }
 
-const shutUpAndPayTheMan = function (event) {
+const shutUpAndTakeMyMoney = function (event) {
   // if (store.amount === undefined || store.amount === 0) {
   //   $('.purchaseConfirm').text('Please put something in the cart before making a purchase.').fadeIn('fast').delay(3000).fadeOut('slow')
   //   return
@@ -92,7 +92,7 @@ const shutUpAndPayTheMan = function (event) {
   }
 
 const addHandlers = () => {
-  $('#buttonCheckout').on('click', shutUpAndPayTheMan)
+  $('#buttonCheckout').on('click', shutUpAndTakeMyMoney)
 }
 module.exports = {
   addHandlers

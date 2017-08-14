@@ -1,6 +1,6 @@
 'use strict'
 
-// const store = require('../store')
+const store = require('../store')
 // const cart = require('../cart')
 
 const showProductsTemplate = require('../templates/products.handlebars')
@@ -16,7 +16,11 @@ let productData
 // cart array.
 const onAddItemToCartArray = function (event) {
   event.preventDefault()
-  const item = $(this).closest('form').find("input[name='id']").val()
+  const item = {
+    "product_id": $(this).closest('form').find("input[name='id']").val(),
+    "quantity": $(this).closest('form').find("input[name='quantity']").val()
+}
+console.log(item)
   cart.push(item)
   console.log(cart)
 }
@@ -65,6 +69,9 @@ const pushItemsToCart = function () {
 // }
 
 const showAllProductsSuccess = function (data) {
+  store.products = data.products
+  console.log(data)
+  console.log(store.products)
   const showProductsHTML = showProductsTemplate({ products: data.products })
   $('#productTable').show()
   $('#productTable tbody').empty()

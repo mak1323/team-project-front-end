@@ -213,10 +213,10 @@
         <th></th>
         <th></th>
         <th></th>
-        <th>Total:</th>
+        <th></th>
         <th>
-          <script src="https://checkout.stripe.com/checkout.js"></script>
-          <button type="button" id="buttonCheckout" class="btn btn-primary pull-right">Checkout</button>
+          <!-- On this button, we proceed to checkout. We calculate price and tota when this button is invoked. We calculate totals, store it in store.total -->
+          <button type="button" id="buttonProceedCheckout" class="btn btn-primary pull-right">Proceed to Checkout</button>
         </th>
     </tr>
 </tfoot>
@@ -226,6 +226,46 @@
 </div>
 
 
+
+<div class="checkoutPage">
+  <table id="checkoutTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
+    <thead>
+      <tr>
+        <th data-field="itemImage" data-sortable="false">
+          Image
+        </th>
+        <th data-field="itemName" data-sortable="true">
+          Name
+        </th>
+        <th data-field="price" data-sortable="true">
+          Price
+        </th>
+        <th data-field="quantity" data-sortable="true">
+          Quantity
+        </th>
+        <th data-field="edit-delete" data-sortable="false">
+          Remove Item
+        </th>
+      </tr>
+    </thead>
+    <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
+    <tbody>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total:</th>
+        <th>
+          <script src="https://checkout.stripe.com/checkout.js"></script>
+          <button type="button" id="buttonCheckout" class="btn btn-primary pull-right">Checkout</button>
+        </th>
+    </tr>
+  </tfoot>
+  </table>
+
+</div>
 
 <div class="pastOrders"></div>
 
