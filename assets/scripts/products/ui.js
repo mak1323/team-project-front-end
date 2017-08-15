@@ -19,9 +19,11 @@ const onAddItemToCartArray = function (event) {
   const item = {
     "product_id": $(this).closest('form').find("input[name='id']").val(),
     "quantity": $(this).closest('form').find("input[name='quantity']").val()
-}
-console.log(item)
+  }
+  console.log(item)
   cart.push(item)
+  store.cart = cart
+  console.log(store.cart)
   console.log(cart)
 }
 
@@ -39,7 +41,8 @@ const pushItemsToCart = function () {
   console.log(productData.products)
   const filteredData = productData.products.filter(function (item) {
     for (let i = 0; i < cart.length; i++) {
-      if (cart[i] === item.id) {
+      if (cart[i].product_id === item.id) {
+        item.quantity = cart[i].quantity
         return item
       }
     }
@@ -49,7 +52,6 @@ const pushItemsToCart = function () {
   $('.cartTable tbody').empty()
   $('.cartTable tbody').append(showCartHTML)
   $('.removeFromCart').on('click', removeFromCartArray)
-  // $('#previousOrderTable').hide()
 }
 
 // const getCartId = function (item) {
