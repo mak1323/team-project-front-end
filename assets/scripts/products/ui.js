@@ -5,6 +5,7 @@ const store = require('../store')
 
 const showProductsTemplate = require('../templates/products.handlebars')
 const showCartTemplate = require('../templates/cart.handlebars')
+const showCheckoutTemplate = require('../templates/checkout-cart.handlebars')
 // const orderApi = require('../orders/api')
 
 // This variable represents the array of products that will be patched into the
@@ -37,6 +38,26 @@ const removeFromCartArray = function (event) {
   pushItemsToCart()
 }
 
+const populateCheckout = function (event) {
+  event.preventDefault()
+  const filteredData = productData.products.filter(function (item) {
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].product_id === item.id) {
+        item.quantity = cart[i].quantity
+        return item
+      }
+    }
+  })
+  console.log(filteredData)
+  const showCheckoutHTML = showCheckoutTemplate({ products: filteredData })
+  $('#checkoutTable tbody').empty()
+  $('#checkoutTable tbody').append(showCheckoutHTML)
+  $('#cartPage').hide()
+  $('#checkoutPage').show()
+  // back button
+  // checkout is good
+}
+
 const pushItemsToCart = function () {
   console.log(productData.products)
   const filteredData = productData.products.filter(function (item) {
@@ -49,11 +70,13 @@ const pushItemsToCart = function () {
   })
   console.log(filteredData)
   const showCartHTML = showCartTemplate({ products: filteredData })
-  $('.cartTable tbody').empty()
-  $('.cartTable tbody').append(showCartHTML)
+  $('#cartTable tbody').empty()
+  $('#cartTable tbody').append(showCartHTML)
   $('.removeFromCart').on('click', removeFromCartArray)
+  $('#proceedToCheckout').on('submit', populateCheckout)
+  // add clear cart
+  // proceed to checkout
 }
-
 // const getCartId = function (item) {
 //   if (item.isOpen === true) {
 //     cartID = item.id
