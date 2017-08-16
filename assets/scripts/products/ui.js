@@ -40,6 +40,7 @@ const removeFromCartArray = function (event) {
 
 const populateCheckout = function (event) {
   event.preventDefault()
+  console.log("working")
   const filteredData = productData.products.filter(function (item) {
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].product_id === item.id) {
@@ -54,8 +55,6 @@ const populateCheckout = function (event) {
   $('#checkoutTable tbody').append(showCheckoutHTML)
   $('#cartPage').hide()
   $('#checkoutPage').show()
-  // back button
-  // checkout is good
 }
 
 const pushItemsToCart = function () {
@@ -73,7 +72,7 @@ const pushItemsToCart = function () {
   $('#cartTable tbody').empty()
   $('#cartTable tbody').append(showCartHTML)
   $('.removeFromCart').on('click', removeFromCartArray)
-  $('#proceedToCheckout').on('submit', populateCheckout)
+  $('#buttonProceedCheckout').on('submit', console.log('works'))
   // add clear cart
   // proceed to checkout
 }
