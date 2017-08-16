@@ -16,17 +16,20 @@ const onProductsMenuButton = () => {
   $('.landingPage').show()
   $('#productTable').show()
   $('#cartPage').hide()
+  $('#checkoutPage').hide()
   $('.previousOrderList').hide()
 }
 const onOrderHistoryButton = () => {
   $('.landingPage').hide()
   $('#cartPage').hide()
+  $('#checkoutPage').hide()
   $('.previousOrderList').show()
 }
 
 const onShoppingCartMenuButton = () => {
   $('.landingPage').hide()
   $('#cartPage').show()
+  $('#checkoutPage').hide()
   $('.previousOrderList').hide()
 }
 
