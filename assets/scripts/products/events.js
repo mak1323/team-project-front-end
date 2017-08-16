@@ -39,11 +39,18 @@ const onCheckoutMenuButton = () => {
   $('#checkoutPage').show()
 }
 
+const onBackToCartButton = () => {
+  $('.landingPage').hide()
+  $('#cartPage').show()
+  $('#checkoutPage').hide()
+}
+
 const addHandlers = () => {
   $('#returnToProducts').on('click', onProductsMenuButton)
   $('#shoppingCartButton').on('click', onShoppingCartMenuButton)
   $('#orderHistoryButton').on('click', onOrderHistoryButton)
   $('#buttonProceedCheckout').on('click', onCheckoutMenuButton)
+  $('#buttonBack').on('click', onBackToCartButton)
 }
 
 module.exports = {
