@@ -29,8 +29,9 @@ const onAddItemToCartArray = function (event) {
 }
 
 const removeFromCartArray = function (event) {
+  console.log(this)
   const newCart = cart.filter(function (item) {
-    if (item !== $(event.target).data('id')) {
+    if (item.product_id !== $(event.target).data('id')) {
       return item
     }
   })
