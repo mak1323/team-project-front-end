@@ -34,14 +34,14 @@ const onFinalizeOrder = function () {
     "currency": proof.currency,
     "status": proof.status
     },
-  "products": [{"product_id": "598b85468dea444f8da1498d", "quantity": 2},{"product_id": "598b85468dea444f8da1498d", "quantity": 2}],
+  "products": store.cart,
   "isOpen": "false",
-  "_owner": "598b57f6077a458074bf0afe"
+  "_owner": store.user.id
   }
 }
-  const id = "598bb39e699c6896d5fff2a7"
+  // const id = "598bb39e699c6896d5fff2a7"
   console.log(data)
-  api.finalizeOrder(data, id)
+  api.finalizeOrder(data)
   .then(ui.onFinalizePaymentSuccess)
   .catch(ui.onFinalizePaymentFailure)
 }

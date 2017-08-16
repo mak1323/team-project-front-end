@@ -24,8 +24,8 @@ const finalizeOrder = function (data, id) {
   // data.order.products = cart
 
   return $.ajax({
-    url: config.apiOrigin + '/orders/' + id,
-    method: 'PATCH',
+    url: config.apiOrigin + '/orders',
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
