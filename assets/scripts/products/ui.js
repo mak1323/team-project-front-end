@@ -53,8 +53,8 @@ const populateCheckout = function (event) {
   const showCheckoutHTML = showCheckoutTemplate({ products: filteredData })
   $('#checkoutTable tbody').empty()
   $('#checkoutTable tbody').append(showCheckoutHTML)
-  $('#cartPage').hide()
-  $('#checkoutPage').show()
+  // $('#cartPage').hide()
+  // $('#checkoutPage').show()
 }
 
 const pushItemsToCart = function () {
@@ -103,6 +103,7 @@ const showAllProductsSuccess = function (data) {
   $('.addToCart').on('submit', onAddItemToCartArray)
   productData = data
   $('#shoppingCartButton').on('click', pushItemsToCart)
+  $('#buttonProceedCheckout').on('click', populateCheckout)
 }
 
 const showAllProductsFailure = function () {

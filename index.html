@@ -227,7 +227,7 @@
 
 
 
-<div id="checkoutPage">
+<div id="checkoutPage" class="logged-in">
   <table id="checkoutTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
     <thead>
       <tr>
@@ -243,6 +243,7 @@
         <th data-field="quantity" data-sortable="true">
           Quantity
         </th>
+        <th data-field="subtotal" data-sortable="true">Item Subtotal</th>
       </tr>
     </thead>
     <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
@@ -252,8 +253,8 @@
     <tr>
         <th></th>
         <th></th>
-        <th></th>
         <th>Total:</th>
+        <th></th>
         <th>
           <script src="https://checkout.stripe.com/checkout.js"></script>
           <button type="button" id="buttonCheckout" class="btn btn-primary pull-right">Checkout</button>
@@ -264,7 +265,7 @@
 
 </div>
 
-<div class="pastOrders"></div>
+<div id="pastOrders" class="logged-in"></div>
 
 
   <div class="page-bottom">
