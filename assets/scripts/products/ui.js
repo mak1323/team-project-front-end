@@ -21,7 +21,8 @@ const onAddItemToCartArray = function (event) {
     "product_id": $(this).closest('form').find("input[name='id']").val(),
     "quantity": $(this).closest('form').find("input[name='quantity']").val()
   }
-  console.log(item)
+  store.amount += parseInt($(this).closest('form').find("input[name='price']").val()) * parseInt($(this).closest('form').find("input[name='quantity']").val())
+  console.log(store.amount)
   cart.push(item)
   store.cart = cart
   console.log(store.cart)

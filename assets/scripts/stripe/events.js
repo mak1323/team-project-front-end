@@ -26,38 +26,38 @@ window.addEventListener('popstate', function () {
 const onFinalizeOrder = function () {
   const proof = store.proofOfSale
   const data = {
-    "order": {
-  "date_placed": "2017-08-10",
-  "salesProof": {
-    "id": proof.id,
-    "amount": proof.amount,
-    "currency": proof.currency,
-    "status": proof.status
-    },
-  "products": store.cart,
-  "isOpen": "false",
-  "_owner": store.user.id
+    'order': {
+      'date_placed': '2017-08-10',
+      'salesProof': {
+        'id': proof.id,
+        'amount': proof.amount,
+        'currency': proof.currency,
+        'status': proof.status
+      },
+      'products': store.cart,
+      'isOpen': 'false',
+      '_owner': store.user.id
+    }
   }
-}
-  // const id = "598bb39e699c6896d5fff2a7"
+  // const id = '598bb39e699c6896d5fff2a7'
   console.log(data)
   api.finalizeOrder(data)
-  .then(ui.onFinalizePaymentSuccess)
-  .catch(ui.onFinalizePaymentFailure)
+    .then(ui.onFinalizePaymentSuccess)
+    .catch(ui.onFinalizePaymentFailure)
 }
 
 const createNewCart = function () {
   const data = {
-    "order": {
-  "date_placed": "2017-08-10",
-  "products": [{}],
-  "isOpen": "true",
-  "_owner": store.user.id
+    'order': {
+      'date_placed': '2017-08-10',
+      'products': [{}],
+      'isOpen': 'true',
+      '_owner': store.user.id
+    }
   }
-}
   api.createNewCart(data)
-  .then(ui.onCreateNewCartSuccess)
-  .catch(ui.onCreateNewCartFailure)
+    .then(ui.onCreateNewCartSuccess)
+    .catch(ui.onCreateNewCartFailure)
 }
 
 const handleToken = function (token) {
@@ -89,7 +89,7 @@ const shutUpAndTakeMyMoney = function (event) {
     // send confirmation
     // CATCHCATCHCATCH-drop token and warn the user.
   })
-  }
+}
 
 const addHandlers = () => {
   $('#buttonCheckout').on('click', shutUpAndTakeMyMoney)

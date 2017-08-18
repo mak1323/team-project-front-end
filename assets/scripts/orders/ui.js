@@ -7,12 +7,7 @@ const showAllOrdersSuccess = function (data) {
   store.orders = data.orders
   console.log(store.orders)
   const showOrdersHTML = showOrdersTemplate({ orders: store.orders })
-  // $('.landingPage').hide()
-  // $('#cartTable').show()
-  // $('#previousOrderTable').hide()
-  // $('#previousOrderTable').empty()
   $('#previousOrderTable').append(showOrdersHTML)
-  // $('.addToCart').on('submit', onAddItemToOrder)
 }
 const showAllOrdersFailure = function () {
 }
