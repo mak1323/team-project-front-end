@@ -6,10 +6,9 @@ be displayed, through this mechanism, on the landingPage -->
 
  <td><p>{{order.date_placed}}</p></td>
  <!-- set up modal here -->
- <td><p>{{order.products.length}}</p></td>
  <td><ul>
   {{#each order.products as |product|}}
-    <li>{{product.id}}, Ordered: {{product.quantity}}</li>
+    <li>{{product.name}}, Ordered: {{product.quantity}}</li>
     {{/each}}
  <td><p>{{order.salesProof.amount}}</p></td>
 

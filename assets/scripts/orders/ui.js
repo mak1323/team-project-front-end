@@ -2,34 +2,41 @@
 const showOrdersTemplate = require('../templates/orders.handlebars')
 const store = require('../store')
 
-const showAllOrdersSuccess = function (data) {
-  console.table(data)
-  store.orders = data.orders
-  const hbsArr = []
-
-  store.orders.forEach(function (order) {
-    if (order.isOpen === false) {
-
-      const pojo = {
-        date_placed: order.date_placed.split('T')[0],
-        products: order.products,
-        total: order.salesProof.amount
+const orderHistoryHandlebarsArrayDeluxe = []
+// refines the past order data
+const cleanRyansFunction = function (order) {
+  if (order.isOpen === false) {
+    // const product = []
+    // store.products.filter(function () {
+    //
+    // }
+    // )
+    for (let i = 0; i < store.products.length; i++) {
+      for (let j = 0; j < order.products.length; j++) {
+        if (store.products[i].id === order.products[j].product_id) {
+          order.products[j].name = store.products[i].name
+        }
       }
-
-      hbsArr.push(pojo)
-    } else {
-      store.currentOrder = order
     }
-  })
-  console.log('This is the handlebars stuff', hbsArr)
-  // a function saves current open order to store.openorder
+    const pojo = {
+      date_placed: order.date_placed.split('T')[0],
+      products: order.products,
+      total: order.salesProof.amount
+    }
 
-  // a function that takes the data we want from past orders and puts into new array
+    orderHistoryHandlebarsArrayDeluxe.push(pojo)
+  } else {
+    store.currentOrder = order
+  }
+}
 
-  // store.orders.forEach(
-  //  {}
+const showAllOrdersSuccess = function (data) {
+  store.orders = data.orders
 
-  const showOrdersHTML = showOrdersTemplate({ orders: hbsArr })
+  console.log('store.orders show ', store.orders)
+  store.orders.forEach(cleanRyansFunction)
+
+  const showOrdersHTML = showOrdersTemplate({ orders: orderHistoryHandlebarsArrayDeluxe })
   $('#previousOrderTable').append(showOrdersHTML)
 }
 
