@@ -1,11 +1,16 @@
-a{{#each orders as |order|}}
+{{#each orders as |order|}}
 
 <!-- this is the handlebars for products when the page loads. Products will
 be displayed, through this mechanism, on the landingPage -->
 <tr>
 
  <td><p>{{order.date_placed}}</p></td>
- <td><p>{{order.products}}</p></td>
+ <!-- set up modal here -->
+ <td><p>{{order.products.length}}</p></td>
+ <td><ul>
+  {{#each order.products as |product|}}
+    <li>{{product.id}}, Ordered: {{product.quantity}}</li>
+    {{/each}}
  <td><p>{{order.salesProof.amount}}</p></td>
 
 
