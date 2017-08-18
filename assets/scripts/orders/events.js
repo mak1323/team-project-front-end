@@ -30,9 +30,10 @@ const onAddOrder = function (event) {
 // (all orders associated with user that are open)
 const onShowAllOrders = function (event) {
   event.preventDefault()
-  api.showAllOrders()
-    .then(ui.showAllOrdersSuccess)
-    .catch(ui.showAllOrdersFailure)
+  console.log('Show all orders is hit')
+  // api.showAllOrders()
+  //   .then(ui.showAllOrdersSuccess)
+  //   .catch(ui.showAllOrdersFailure)
 }
 
 const addHandlers = () => {
@@ -42,5 +43,6 @@ const addHandlers = () => {
   // $('#updateCart').on('submit', onUpdateOrder)
 }
 module.exports = {
+  onShowAllOrders,
   addHandlers
 }

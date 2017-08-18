@@ -5,6 +5,8 @@ const api = require('./api')
 const ui = require('./ui')
 const productsApi = require('../products/api')
 const productsUi = require('../products/ui')
+const ordersApi = require('../orders/api')
+const ordersUi = require('../orders/ui')
 
 const onSignUp = (event) => {
   event.preventDefault()
@@ -22,6 +24,8 @@ const onSignIn = (event) => {
     .catch(ui.signInFailure)
     .then(productsApi.showAllProducts)
     .then(productsUi.showAllProductsSuccess)
+    .then(ordersApi.showAllOrders)
+    .then(ordersUi.showAllOrdersSuccess)
     .catch(productsUi.showAllProductsFailure)
 }
 

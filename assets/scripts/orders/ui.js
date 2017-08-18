@@ -1,14 +1,17 @@
 'use strict'
 const showOrdersTemplate = require('../templates/orders.handlebars')
+const store = require('../store')
 
 const showAllOrdersSuccess = function (data) {
   console.table(data)
-  const showOrdersHTML = showOrdersTemplate({ orders: data.cart })
-  $('.landingPage').hide()
-  $('#cartTable').show()
-  $('#previousOrderTable').hide()
+  store.orders = data.orders
+  console.log(store.orders)
+  const showOrdersHTML = showOrdersTemplate({ orders: store.orders })
+  // $('.landingPage').hide()
+  // $('#cartTable').show()
+  // $('#previousOrderTable').hide()
   // $('#previousOrderTable').empty()
-  // $('#previousOrderTable').append(showOrdersHTML)
+  $('#previousOrderTable').append(showOrdersHTML)
   // $('.addToCart').on('submit', onAddItemToOrder)
 }
 const showAllOrdersFailure = function () {
