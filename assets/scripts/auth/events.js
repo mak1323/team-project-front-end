@@ -11,9 +11,13 @@ const ordersUi = require('../orders/ui')
 const onSignUp = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+  if (data.credentials.password === data.credentials.password_confirmation) {
+    api.signUp(data)
+      .then(ui.signUpSuccess)
+      .catch(ui.signUpFailure)
+  } else {
+    ui.signUpFailure()
+  }
 }
 
 const onSignIn = (event) => {
