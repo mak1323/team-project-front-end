@@ -4,13 +4,9 @@ const store = require('../store')
 
 const orderHistoryHandlebarsArrayDeluxe = []
 // refines the past order data
+
 const cleanRyansFunction = function (order) {
   if (order.isOpen === false) {
-    // const product = []
-    // store.products.filter(function () {
-    //
-    // }
-    // )
     for (let i = 0; i < store.products.length; i++) {
       for (let j = 0; j < order.products.length; j++) {
         if (store.products[i].id === order.products[j].product_id) {
@@ -23,7 +19,6 @@ const cleanRyansFunction = function (order) {
       products: order.products,
       total: order.salesProof.amount
     }
-
     orderHistoryHandlebarsArrayDeluxe.push(pojo)
   } else {
     store.currentOrder = order

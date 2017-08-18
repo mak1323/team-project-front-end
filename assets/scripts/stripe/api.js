@@ -19,13 +19,9 @@ const makeCharge = function (data) {
 }
 
 const finalizeOrder = function (data, id) {
-  // console.log(cart)
-  // console.log(data)
-  // data.order.products = cart
-
   return $.ajax({
-    url: config.apiOrigin + '/orders',
-    method: 'POST',
+    url: config.apiOrigin + '/orders/' + id,
+    method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },

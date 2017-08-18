@@ -2,6 +2,8 @@
 
 const store = require('../store')
 // const cart = require('../cart')
+const api = require('../stripe/api')
+const ui = require('../stripe/ui')
 
 const showProductsTemplate = require('../templates/products.handlebars')
 const showCartTemplate = require('../templates/cart.handlebars')
@@ -22,15 +24,13 @@ const onAddItemToCartArray = function (event) {
     "quantity": $(this).closest('form').find("input[name='quantity']").val()
   }
   store.amount += parseInt($(this).closest('form').find("input[name='price']").val()) * parseInt($(this).closest('form').find("input[name='quantity']").val())
-  console.log(store.amount)
   cart.push(item)
   store.cart = cart
-  console.log(store.cart)
-  console.log(cart)
+  carriageBoy()
+  updateExistingCart()
 }
 
 const removeFromCartArray = function (event) {
-  console.log(this)
   const newCart = cart.filter(function (item) {
     if (item.product_id !== $(event.target).data('id')) {
       return item
@@ -42,7 +42,6 @@ const removeFromCartArray = function (event) {
 
 const populateCheckout = function (event) {
   event.preventDefault()
-  console.log("working")
   const filteredData = productData.products.filter(function (item) {
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].product_id === item.id) {
@@ -51,7 +50,6 @@ const populateCheckout = function (event) {
       }
     }
   })
-  console.log(filteredData)
   const showCheckoutHTML = showCheckoutTemplate({ products: filteredData })
   $('#checkoutTable tbody').empty()
   $('#checkoutTable tbody').append(showCheckoutHTML)
@@ -60,7 +58,6 @@ const populateCheckout = function (event) {
 }
 
 const pushItemsToCart = function () {
-  console.log(productData.products)
   const filteredData = productData.products.filter(function (item) {
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].product_id === item.id) {
@@ -69,12 +66,11 @@ const pushItemsToCart = function () {
       }
     }
   })
-  console.log(filteredData)
   const showCartHTML = showCartTemplate({ products: filteredData })
   $('#cartTable tbody').empty()
   $('#cartTable tbody').append(showCartHTML)
   $('.removeFromCart').on('click', removeFromCartArray)
-  $('#buttonProceedCheckout').on('submit', console.log('works'))
+  // $('#buttonProceedCheckout').on('submit', console.log('works'))
   // add clear cart
   // proceed to checkout
 }
@@ -96,8 +92,6 @@ const pushItemsToCart = function () {
 
 const showAllProductsSuccess = function (data) {
   store.products = data.products
-  console.log(data)
-  console.log(store.products)
   const showProductsHTML = showProductsTemplate({ products: data.products })
   $('#productTable').show()
   $('#productTable tbody').empty()
@@ -110,6 +104,41 @@ const showAllProductsSuccess = function (data) {
 
 const showAllProductsFailure = function () {
   // $('#UiFailure').text('something went wrong')
+}
+
+// create a cart if there isn't one and if there is one then send a patch request to update the existing cart
+const carriageBoy = () => {
+  if (!store.currentOrder) {
+    const data = {
+      'order': {
+        'date_placed': '2017-08-10',
+        'products': [{}],
+        'isOpen': 'true',
+        '_owner': store.user.id
+      }
+    }
+    api.createNewCart(data)
+      .then(ui.onCreateNewCartSuccess)
+      .catch(ui.onCreateNewCartFailure)
+  }
+}
+
+const updateExistingCart = () => {
+  const id = store.currentOrder.id
+  const data = {
+    'order': {
+      'date_placed': '2017-08-10',
+      'products': store.cart,
+      'isOpen': 'true',
+      '_owner': store.user.id
+    }
+  }
+  console.log('updateExistingCart data=', data)
+  console.log('updateExistingCart id=', id)
+
+  api.finalizeOrder(data, id)
+    .then(ui.onUpdateExisitingCartSuccess)
+    .catch(ui.onUpdateExisitingCartFailure)
 }
 
 module.exports = {

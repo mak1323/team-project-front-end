@@ -12,7 +12,6 @@ const onShowAllProducts = function (event) {
 }
 
 const onProductsMenuButton = () => {
-  console.log('products here')
   $('.landingPage').show()
   $('#productTable').show()
   $('#cartPage').hide()

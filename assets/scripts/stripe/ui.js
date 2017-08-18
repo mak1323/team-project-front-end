@@ -3,7 +3,6 @@
 const store = require('../store')
 // on successful response of api.
 const onStripeAPISuccess = (data) => {
-  console.log('success')
   store.proofOfSale = {
     'id': data.id,
     'amount': data.amount / 100,
@@ -14,34 +13,43 @@ const onStripeAPISuccess = (data) => {
 
 // on failed response
 const onStripeAPIFail = (data) => {
-  console.log('fail', data)
   $('#UiFailure').text('Please try another credit card').fadeIn('fast').delay(3000).fadeOut('slow')
 }
 
 const onFinalizeOrderSuccess = function (data) {
-  console.log(data)
   // response data will go here
-  console.log('success', data)
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
 }
 const onFinalizeOrderFailure = function () {
 
 }
 const onCreateNewCartSuccess = function (data) {
-  console.log(data)
   // response data will go here
-  console.log('success', data)
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
+  store.currentOrder = data
+  console.log('oncreatenewcartsuccess from stripe ui is working')
+  console.log(data)
 }
 
 const onCreateNewCartFailure = function () {
 
 }
-
+const onUpdateExisitingCartSuccess = (data) => {
+  console.log('onUpdateExisitingCartSuccess is working', data)
+  console.log('store.user.id', store.user.id)
+}
+const onUpdateExisitingCartFailure = (data) => {
+  console.log('onUpdateExisitingCartSuccess is not working', data)
+  console.log('store.user.id', store.user.id)
+}
 module.exports = {
   onStripeAPISuccess,
   onStripeAPIFail,
   onFinalizeOrderSuccess,
-  onFinalizeOrderFailure
+  onFinalizeOrderFailure,
+  onCreateNewCartSuccess,
+  onCreateNewCartFailure,
+  onUpdateExisitingCartSuccess,
+  onUpdateExisitingCartFailure
 
 }
