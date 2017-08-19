@@ -27,7 +27,6 @@ const onCreateNewCartSuccess = function (data) {
   // response data will go here
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
   store.currentOrder = data
-  console.log('oncreatenewcartsuccess from stripe ui is working')
   console.log(data)
 }
 
@@ -36,7 +35,8 @@ const onCreateNewCartFailure = function () {
 }
 const onUpdateExisitingCartSuccess = (data) => {
   console.log('onUpdateExisitingCartSuccess is working', data)
-  console.log('store.user.id', store.user.id)
+  console.log('store.cart is', store.cart)
+  console.log('store.currentOrder is currently', store.currentOrder)
 }
 const onUpdateExisitingCartFailure = (data) => {
   console.log('onUpdateExisitingCartSuccess is not working', data)

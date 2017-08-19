@@ -22,6 +22,8 @@ const cleanRyansFunction = function (order) {
     orderHistoryHandlebarsArrayDeluxe.push(pojo)
   } else {
     store.currentOrder = order
+    store.cart = order.products
+    console.log('current cart =', store.cart)
   }
 }
 

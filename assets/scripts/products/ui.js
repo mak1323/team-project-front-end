@@ -4,6 +4,8 @@ const store = require('../store')
 // const cart = require('../cart')
 const api = require('../stripe/api')
 const ui = require('../stripe/ui')
+const ordersUi = require('../orders/ui')
+const ordersApi = require('../orders/api')
 
 const showProductsTemplate = require('../templates/products.handlebars')
 const showCartTemplate = require('../templates/cart.handlebars')
@@ -23,11 +25,14 @@ const onAddItemToCartArray = function (event) {
     "product_id": $(this).closest('form').find("input[name='id']").val(),
     "quantity": $(this).closest('form').find("input[name='quantity']").val()
   }
-  store.amount += parseInt($(this).closest('form').find("input[name='price']").val()) * parseInt($(this).closest('form').find("input[name='quantity']").val())
-  cart.push(item)
-  store.cart = cart
+  // store.amount += parseInt($(this).closest('form').find("input[name='price']").val()) * parseInt($(this).closest('form').find("input[name='quantity']").val())
+  // cart.push(item)
+  store.cart.push(item)
+  console.log('store.cart currently is ', store.cart)
   carriageBoy()
   updateExistingCart()
+  // ordersApi.showAllOrders()
+  //   .then(ordersUi.showAllOrdersSuccess)
 }
 
 const removeFromCartArray = function (event) {
@@ -120,6 +125,8 @@ const carriageBoy = () => {
     api.createNewCart(data)
       .then(ui.onCreateNewCartSuccess)
       .catch(ui.onCreateNewCartFailure)
+  } else {
+    console.log('We fucked it up. store.currentOrder =', store.currentOrder)
   }
 }
 
@@ -127,14 +134,10 @@ const updateExistingCart = () => {
   const id = store.currentOrder.id
   const data = {
     'order': {
-      'date_placed': '2017-08-10',
-      'products': store.cart,
-      'isOpen': 'true',
-      '_owner': store.user.id
+      'products': store.cart
     }
   }
   console.log('updateExistingCart data=', data)
-  console.log('updateExistingCart id=', id)
 
   api.finalizeOrder(data, id)
     .then(ui.onUpdateExisitingCartSuccess)
