@@ -19,10 +19,8 @@ const makeCharge = function (data) {
 }
 
 const finalizeOrder = function (data, id) {
-  // console.log(cart)
-  // console.log(data)
-  // data.order.products = cart
-
+  console.log('api data is', data)
+  console.log('api id is ', id)
   return $.ajax({
     url: config.apiOrigin + '/orders/' + id,
     method: 'PATCH',

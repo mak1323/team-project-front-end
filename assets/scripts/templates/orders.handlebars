@@ -1,30 +1,22 @@
 {{#each orders as |order|}}
+
+<!-- this is the handlebars for products when the page loads. Products will
+be displayed, through this mechanism, on the landingPage -->
 <tr>
 
  <td><p>{{order.date_placed}}</p></td>
- <td><p>{{order.products}}</p></td>
- <td><p> {{order.isOpen}}</p></td>
- <!-- <td><p> {{order.quantity}}</p></td> -->
+ <!-- set up modal here -->
+ <td><ul>
+  {{#each order.products as |product|}}
+    <li>{{product.name}}, Ordered: {{product.quantity}}</li>
+    {{/each}}
+ <td><p>{{order.salesProof.amount}}</p></td>
 
 
 
-<td>
-  <!-- update order quantity button -->
-  <!-- <button data-id="{{order.id}}" type="button" id="updateQuantity" class="btn-default updateQuantityHandlebarsButton" data-toggle="modal" data-target="#updateQuantityModal"><i data-id="{{order.id}}" class="fa fa-pencil" aria-hidden="true"></i> </button> -->
-  <!-- remove order button -->
-  <!-- <button data-id="{{order.id}}" type="button" class="deleteButton btn-default"><i data-id="{{order.id}}" class="fa fa-trash" aria-hidden="true"></i></button> -->
-  <form class="updateOrder">
-    <fieldset>
-      <input value="{{order.id}}" class='text-field' type="text" name='id'><br> <br>
-      <input value="{{order.date_placed}}" class='text-field' type="text" name='date_placed'><br> <br>
-      <input value="{{order.products}}" class='text-field order-product-field' type="text" name='products'><br> <br>
-      <input value="{{order.isOpen}}" class='text-field order-isopen-field' type="text" name='isOpen'><br> <br>
-      <button class="btn btn-primary btn-lg" type="submit">update</button>
-    </fieldset><br>
-    <div></div>
-  </form>
-
-</td>
+<!-- Add to cart form with a hidden input that contains the order id and an input
+for quanity. When submitted, this form will trigger a function to add the
+item with the specified quanity to the shopping cart -->
 </tr>
 
 

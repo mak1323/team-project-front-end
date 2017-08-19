@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const productsUi = require('../products/ui')
 // if we use handlebars replace x with filename
 
 const signUpSuccess = (data) => {
@@ -19,6 +20,8 @@ const signInSuccess = (data) => {
   $('.logged-in').show()
   $('.previousOrderList').hide()
   $('.greeting').text('welcome back, ' + data.user.email)
+  console.log(data)
+  productsUi.carraigeBoy()
 }
 
 const signInFailure = () => {

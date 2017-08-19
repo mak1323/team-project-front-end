@@ -1,16 +1,42 @@
 'use strict'
 const showOrdersTemplate = require('../templates/orders.handlebars')
+const store = require('../store')
+
+const orderHistoryHandlebarsArrayDeluxe = []
+// refines the past order data
+
+const cleanRyansFunction = function (order) {
+  if (order.isOpen === false) {
+    for (let i = 0; i < store.products.length; i++) {
+      for (let j = 0; j < order.products.length; j++) {
+        if (store.products[i].id === order.products[j].product_id) {
+          order.products[j].name = store.products[i].name
+        }
+      }
+    }
+    const pojo = {
+      date_placed: order.date_placed.split('T')[0],
+      products: order.products,
+      total: order.salesProof.amount
+    }
+    orderHistoryHandlebarsArrayDeluxe.push(pojo)
+  } else {
+    store.currentOrder = order
+    store.cart = order.products
+    console.log('current cart =', store.cart)
+  }
+}
 
 const showAllOrdersSuccess = function (data) {
-  console.table(data)
-  const showOrdersHTML = showOrdersTemplate({ orders: data.cart })
-  $('.landingPage').hide()
-  $('#cartTable').show()
-  $('#previousOrderTable').hide()
-  // $('#previousOrderTable').empty()
-  // $('#previousOrderTable').append(showOrdersHTML)
-  // $('.addToCart').on('submit', onAddItemToOrder)
+  store.orders = data.orders
+
+  console.log('store.orders show ', store.orders)
+  store.orders.forEach(cleanRyansFunction)
+
+  const showOrdersHTML = showOrdersTemplate({ orders: orderHistoryHandlebarsArrayDeluxe })
+  $('#previousOrderTable').append(showOrdersHTML)
 }
+
 const showAllOrdersFailure = function () {
 }
 

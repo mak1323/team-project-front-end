@@ -15,7 +15,8 @@ $(() => {
   orderEvents.addHandlers()
   productEvents.addHandlers()
   stripeEvents.addHandlers()
-  $('.cartTable').hide()
+  $('#cartPage').hide()
+  $('#checkoutPage').hide()
 })
 
 // use require with a reference to bundle the file and use it in this file

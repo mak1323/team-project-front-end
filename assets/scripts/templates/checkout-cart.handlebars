@@ -1,4 +1,4 @@
-{{#each products as |product|}}
+a{{#each products as |product|}}
 
 <!-- this is the handlebars for products when the page loads. Products will
 be displayed, through this mechanism, on the landingPage -->
@@ -8,17 +8,14 @@ be displayed, through this mechanism, on the landingPage -->
  <td><p>{{product.name}}</p></td>
  <td><p>{{product.price}}</p></td>
  <td><p>{{product.quantity}}</p></td>
- <!-- <td><fieldset>
-   <input data-id="{{product.id}}" min="0" max="999" value="{{product.quantity}}" class='text-field' type="number" name='id'>
- </fieldset></td> -->
+ <td></td>
+
 
 
 <!-- Add to cart form with a hidden input that contains the product id and an input
 for quanity. When submitted, this form will trigger a function to add the
 item with the specified quanity to the shopping cart -->
-
-<td>
-      <button data-id="{{product.id}}" class="removeFromCart btn btn-primary btn-lg" type="submit">Remove From Cart</button>
-</td>
 </tr>
+
+
 {{/each}}

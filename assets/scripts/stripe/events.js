@@ -26,38 +26,38 @@ window.addEventListener('popstate', function () {
 const onFinalizeOrder = function () {
   const proof = store.proofOfSale
   const data = {
-    "order": {
-  "date_placed": "2017-08-10",
-  "salesProof": {
-    "id": proof.id,
-    "amount": proof.amount,
-    "currency": proof.currency,
-    "status": proof.status
-    },
-  "products": [{"product_id": "598b85468dea444f8da1498d", "quantity": 2},{"product_id": "598b85468dea444f8da1498d", "quantity": 2}],
-  "isOpen": "false",
-  "_owner": "598b57f6077a458074bf0afe"
+    'order': {
+      'date_placed': '2017-08-10',
+      'salesProof': {
+        'id': proof.id,
+        'amount': proof.amount,
+        'currency': proof.currency,
+        'status': proof.status
+      },
+      'products': store.cart,
+      'isOpen': 'false',
+      '_owner': store.user.id
+    }
   }
-}
-  const id = "598bb39e699c6896d5fff2a7"
+  // const id = '598bb39e699c6896d5fff2a7'
   console.log(data)
-  api.finalizeOrder(data, id)
-  .then(ui.onFinalizePaymentSuccess)
-  .catch(ui.onFinalizePaymentFailure)
+  api.finalizeOrder(data)
+    .then(ui.onFinalizePaymentSuccess)
+    .catch(ui.onFinalizePaymentFailure)
 }
 
 const createNewCart = function () {
   const data = {
-    "order": {
-  "date_placed": "2017-08-10",
-  "products": [{}],
-  "isOpen": "true",
-  "_owner": store.user.id
+    'order': {
+      'date_placed': '2017-08-10',
+      'products': [{}],
+      'isOpen': 'true',
+      '_owner': store.user.id
+    }
   }
-}
   api.createNewCart(data)
-  .then(ui.onCreateNewCartSuccess)
-  .catch(ui.onCreateNewCartFailure)
+    .then(ui.onCreateNewCartSuccess)
+    .catch(ui.onCreateNewCartFailure)
 }
 
 const handleToken = function (token) {
@@ -72,7 +72,7 @@ const handleToken = function (token) {
     .then(createNewCart)
 }
 
-const shutUpAndPayTheMan = function (event) {
+const shutUpAndTakeMyMoney = function (event) {
   // if (store.amount === undefined || store.amount === 0) {
   //   $('.purchaseConfirm').text('Please put something in the cart before making a purchase.').fadeIn('fast').delay(3000).fadeOut('slow')
   //   return
@@ -89,10 +89,10 @@ const shutUpAndPayTheMan = function (event) {
     // send confirmation
     // CATCHCATCHCATCH-drop token and warn the user.
   })
-  }
+}
 
 const addHandlers = () => {
-  $('#buttonCheckout').on('click', shutUpAndPayTheMan)
+  $('#buttonCheckout').on('click', shutUpAndTakeMyMoney)
 }
 module.exports = {
   addHandlers

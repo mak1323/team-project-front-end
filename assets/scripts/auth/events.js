@@ -5,14 +5,19 @@ const api = require('./api')
 const ui = require('./ui')
 const productsApi = require('../products/api')
 const productsUi = require('../products/ui')
+const ordersApi = require('../orders/api')
+const ordersUi = require('../orders/ui')
 
 const onSignUp = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .then(createNewCart)
-    .catch(ui.signUpFailure)
+  if (data.credentials.password === data.credentials.password_confirmation) {
+    api.signUp(data)
+      .then(ui.signUpSuccess)
+      .catch(ui.signUpFailure)
+  } else {
+    ui.signUpFailure()
+  }
 }
 
 const onSignIn = (event) => {
@@ -23,6 +28,8 @@ const onSignIn = (event) => {
     .catch(ui.signInFailure)
     .then(productsApi.showAllProducts)
     .then(productsUi.showAllProductsSuccess)
+    .then(ordersApi.showAllOrders)
+    .then(ordersUi.showAllOrdersSuccess)
     .catch(productsUi.showAllProductsFailure)
 }
 

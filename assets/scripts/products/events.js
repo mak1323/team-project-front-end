@@ -12,28 +12,44 @@ const onShowAllProducts = function (event) {
 }
 
 const onProductsMenuButton = () => {
-  console.log('products here')
   $('.landingPage').show()
   $('#productTable').show()
-  $('.cartTable').hide()
+  $('#cartPage').hide()
+  $('#checkoutPage').hide()
   $('.previousOrderList').hide()
 }
 const onOrderHistoryButton = () => {
   $('.landingPage').hide()
-  $('.cartTable').hide()
+  $('#cartPage').hide()
+  $('#checkoutPage').hide()
   $('.previousOrderList').show()
 }
 
 const onShoppingCartMenuButton = () => {
   $('.landingPage').hide()
-  $('.cartTable').show()
+  $('#cartPage').show()
+  $('#checkoutPage').hide()
   $('.previousOrderList').hide()
+}
+
+const onCheckoutMenuButton = () => {
+  $('.landingPage').hide()
+  $('#cartPage').hide()
+  $('#checkoutPage').show()
+}
+
+const onBackToCartButton = () => {
+  $('.landingPage').hide()
+  $('#cartPage').show()
+  $('#checkoutPage').hide()
 }
 
 const addHandlers = () => {
   $('#returnToProducts').on('click', onProductsMenuButton)
   $('#shoppingCartButton').on('click', onShoppingCartMenuButton)
   $('#orderHistoryButton').on('click', onOrderHistoryButton)
+  $('#buttonProceedCheckout').on('click', onCheckoutMenuButton)
+  $('#buttonBack').on('click', onBackToCartButton)
 }
 
 module.exports = {
