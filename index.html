@@ -109,7 +109,7 @@
     </div>
   </header>
 
-  <div class="landingPage">
+  <div class="landingPage logged-in">
     <!--  the class "logged-in" is what hides the product list when a user signs out, it is located in the auth/ui-->
     <div class="productList logged-in">
       <table id="productTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
@@ -146,7 +146,7 @@
     </div>
   </div>
 
-  <div class="previousOrderList logged-in">
+  <div id="previousOrdersTableDiv" class="previousOrderList logged-in">
     <table id="previousOrderTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
       <thead>
         <tr>
@@ -161,8 +161,7 @@
           </th>
         </tr>
       </thead>
-      <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
-      <tbody>
+      <tbody id="prevOrderBody">
       </tbody>
     </table>
   </div>
@@ -179,7 +178,7 @@
 
 
 <!-- this is the shopping cart -->
-<div id="cartPage">
+<div class="logged-in" id="cartPage">
   <div class="checkoutButton">
     <div class="checkout pull-right">
       <div class="payment">

@@ -7,6 +7,7 @@ const productsApi = require('../products/api')
 const productsUi = require('../products/ui')
 const ordersApi = require('../orders/api')
 const ordersUi = require('../orders/ui')
+const store = require('../store')
 
 const onSignUp = (event) => {
   event.preventDefault()

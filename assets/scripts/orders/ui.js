@@ -2,7 +2,7 @@
 const showOrdersTemplate = require('../templates/orders.handlebars')
 const store = require('../store')
 
-const orderHistoryHandlebarsArrayDeluxe = []
+let orderHistoryHandlebarsArrayDeluxe = []
 // refines the past order data
 
 const cleanRyansFunction = function (order) {
@@ -31,7 +31,9 @@ const showAllOrdersSuccess = function (data) {
   store.orders.forEach(cleanRyansFunction)
 
   const showOrdersHTML = showOrdersTemplate({ orders: orderHistoryHandlebarsArrayDeluxe })
-  $('#previousOrderTable').append(showOrdersHTML)
+  $('#previousOrderTable tbody').empty()
+  $('#previousOrderTable tbody').append(showOrdersHTML)
+  orderHistoryHandlebarsArrayDeluxe = []
 }
 
 const showAllOrdersFailure = function () {

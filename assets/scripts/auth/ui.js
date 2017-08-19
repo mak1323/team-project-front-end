@@ -19,6 +19,7 @@ const signInSuccess = (data) => {
   $('.logged-out').hide()
   $('.logged-in').show()
   $('.previousOrderList').hide()
+  $('.pastOrder').remove()
   $('.greeting').text('welcome back, ' + data.user.email)
 }
 
@@ -37,7 +38,12 @@ const changePasswordFailure = () => {
 const signOutSuccess = (data) => {
   $('.logged-in').hide()
   $('.logged-out').show()
-
+  store.cart = []
+  store.orders = []
+  store.currentOrder = {}
+  store.products = []
+  store.user = {}
+  $('#previousOrderTable tbody').empty()
 }
 
 const signOutFailure = () => {

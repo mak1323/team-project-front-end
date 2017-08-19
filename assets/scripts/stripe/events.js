@@ -24,10 +24,10 @@ window.addEventListener('popstate', function () {
 })
 
 const onFinalizeOrder = function () {
+  const id = store.currentOrder.id
   const proof = store.proofOfSale
   const data = {
     'order': {
-      'date_placed': '2017-08-10',
       'salesProof': {
         'id': proof.id,
         'amount': proof.amount,
@@ -35,11 +35,10 @@ const onFinalizeOrder = function () {
         'status': proof.status
       },
       'products': store.cart,
-      'isOpen': 'false',
-      '_owner': store.user.id
+      'isOpen': 'false'
     }
   }
-  api.finalizeOrder(data)
+  api.finalizeOrder(data, id)
     .then(ui.onFinalizePaymentSuccess)
     .catch(ui.onFinalizePaymentFailure)
 }

@@ -4,8 +4,6 @@ const store = require('../store')
 // const cart = require('../cart')
 const api = require('../stripe/api')
 const ui = require('../stripe/ui')
-const ordersUi = require('../orders/ui')
-const ordersApi = require('../orders/api')
 
 const showProductsTemplate = require('../templates/products.handlebars')
 const showCartTemplate = require('../templates/cart.handlebars')
@@ -14,7 +12,6 @@ const showCheckoutTemplate = require('../templates/checkout-cart.handlebars')
 
 // This variable represents the array of products that will be patched into the
 // active order.
-let cart = []
 let productData
 // When a user adds an item to an order, this will pass the item's id and the
 // quanity value the user entered into an array and pushes it to the shopping
@@ -22,15 +19,11 @@ let productData
 const onAddItemToCartArray = function (event) {
   event.preventDefault()
   const item = {
-    "product_id": $(this).closest('form').find("input[name='id']").val(),
-    "quantity": $(this).closest('form').find("input[name='quantity']").val()
+    'product_id': $(this).closest('form').find("input[name='id']").val(),
+    'quantity': $(this).closest('form').find("input[name='quantity']").val()
   }
-  // store.amount += parseInt($(this).closest('form').find("input[name='price']").val()) * parseInt($(this).closest('form').find("input[name='quantity']").val())
-  // cart.push(item)
   store.cart.push(item)
   updateExistingCart()
-  // ordersApi.showAllOrders()
-  //   .then(ordersUi.showAllOrdersSuccess)
 }
 
 const removeFromCartArray = function (event) {
@@ -47,9 +40,9 @@ const removeFromCartArray = function (event) {
 const populateCheckout = function (event) {
   event.preventDefault()
   const filteredData = productData.products.filter(function (item) {
-    for (let i = 0; i < cart.length; i++) {
-      if (cart[i].product_id === item.id) {
-        item.quantity = cart[i].quantity
+    for (let i = 0; i < store.cart.length; i++) {
+      if (store.cart[i].product_id === item.id) {
+        item.quantity = store.cart[i].quantity
         return item
       }
     }
@@ -106,8 +99,6 @@ const carriageBoy = () => {
     api.createNewCart(data)
       .then(ui.onCreateNewCartSuccess)
       .catch(ui.onCreateNewCartFailure)
-  } else {
-    console.log('We fucked it up. store.currentOrder =', store.currentOrder)
   }
 }
 
@@ -118,8 +109,6 @@ const updateExistingCart = () => {
       'products': store.cart
     }
   }
-
-  console.log('store.cart is', store.cart)
 
   api.finalizeOrder(data, id)
     .then(ui.onUpdateExisitingCartSuccess)
