@@ -23,14 +23,11 @@ const cleanRyansFunction = function (order) {
   } else {
     store.currentOrder = order
     store.cart = order.products
-    console.log('current cart =', store.cart)
   }
 }
 
 const showAllOrdersSuccess = function (data) {
   store.orders = data.orders
-
-  console.log('store.orders show ', store.orders)
   store.orders.forEach(cleanRyansFunction)
 
   const showOrdersHTML = showOrdersTemplate({ orders: orderHistoryHandlebarsArrayDeluxe })
@@ -48,7 +45,6 @@ const addOrderFailure = function () {
 }
 
 const updateOrderSuccess = function (data) {
-  console.log(data)
 }
 const updateOrderFailure = function () {
 

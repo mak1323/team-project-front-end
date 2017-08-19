@@ -30,7 +30,6 @@ const onAddOrder = function (event) {
 // (all orders associated with user that are open)
 const onShowAllOrders = function (event) {
   event.preventDefault()
-  console.log('Show all orders is hit')
   // api.showAllOrders()
   //   .then(ui.showAllOrdersSuccess)
   //   .catch(ui.showAllOrdersFailure)

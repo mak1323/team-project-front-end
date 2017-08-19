@@ -20,7 +20,6 @@ const signInSuccess = (data) => {
   $('.logged-in').show()
   $('.previousOrderList').hide()
   $('.greeting').text('welcome back, ' + data.user.email)
-  console.log(data)
   productsUi.carraigeBoy()
 }
 
@@ -45,9 +44,7 @@ const signOutFailure = () => {
 }
 
 const onCreateNewCartSuccess = function (data) {
-  console.log(data)
   // response data will go here
-  console.log('success', data)
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
 }
 

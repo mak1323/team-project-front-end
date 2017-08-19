@@ -39,8 +39,6 @@ const onFinalizeOrder = function () {
       '_owner': store.user.id
     }
   }
-  // const id = '598bb39e699c6896d5fff2a7'
-  console.log(data)
   api.finalizeOrder(data)
     .then(ui.onFinalizePaymentSuccess)
     .catch(ui.onFinalizePaymentFailure)
