@@ -25,8 +25,9 @@ const onFinalizeOrderFailure = function () {
 }
 const onCreateNewCartSuccess = function (data) {
   // response data will go here
+  console.log('new cart data is', data)
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
-  store.currentOrder = data
+  store.currentOrder = data.order
   store.cart = []
 }
 

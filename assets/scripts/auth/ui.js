@@ -20,7 +20,6 @@ const signInSuccess = (data) => {
   $('.logged-in').show()
   $('.previousOrderList').hide()
   $('.greeting').text('welcome back, ' + data.user.email)
-  productsUi.carraigeBoy()
 }
 
 const signInFailure = () => {
@@ -38,6 +37,7 @@ const changePasswordFailure = () => {
 const signOutSuccess = (data) => {
   $('.logged-in').hide()
   $('.logged-out').show()
+
 }
 
 const signOutFailure = () => {
