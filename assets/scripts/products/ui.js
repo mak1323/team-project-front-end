@@ -27,9 +27,9 @@ const onAddItemToCartArray = function (event) {
   }
   // store.amount += parseInt($(this).closest('form').find("input[name='price']").val()) * parseInt($(this).closest('form').find("input[name='quantity']").val())
   // cart.push(item)
+  carriageBoy()
   store.cart.push(item)
   console.log('store.cart currently is ', store.cart)
-  carriageBoy()
   updateExistingCart()
   // ordersApi.showAllOrders()
   //   .then(ordersUi.showAllOrdersSuccess)
@@ -114,6 +114,7 @@ const showAllProductsFailure = function () {
 // create a cart if there isn't one and if there is one then send a patch request to update the existing cart
 const carriageBoy = () => {
   if (!store.currentOrder) {
+    console.log('carriageBoy active')
     const data = {
       'order': {
         'date_placed': '2017-08-10',
