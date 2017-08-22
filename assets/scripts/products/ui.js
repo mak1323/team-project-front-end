@@ -59,6 +59,7 @@ const pushItemsToCart = function () {
     for (let i = 0; i < store.cart.length; i++) {
       if (store.cart[i].product_id === item.id) {
         item.quantity = store.cart[i].quantity
+        item.subtotal = item.quantity * item.price
         return item
       }
     }
