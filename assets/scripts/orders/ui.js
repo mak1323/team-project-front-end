@@ -17,7 +17,7 @@ const cleanRyansFunction = function (order) {
     const pojo = {
       date_placed: order.date_placed.split('T')[0],
       products: order.products,
-      total: order.salesProof.amount
+      total: order.amount
     }
     orderHistoryHandlebarsArrayDeluxe.push(pojo)
   } else {
@@ -31,6 +31,7 @@ const showAllOrdersSuccess = function (data) {
   store.orders.forEach(cleanRyansFunction)
 
   const showOrdersHTML = showOrdersTemplate({ orders: orderHistoryHandlebarsArrayDeluxe })
+  console.log('orderHistoryHandlebarsArrayDeluxe is ', orderHistoryHandlebarsArrayDeluxe)
   $('#previousOrderTable tbody').empty()
   $('#previousOrderTable tbody').append(showOrdersHTML)
   orderHistoryHandlebarsArrayDeluxe = []
