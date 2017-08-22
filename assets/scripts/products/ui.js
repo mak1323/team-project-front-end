@@ -39,15 +39,19 @@ const removeFromCartArray = function (event) {
 
 const populateCheckout = function (event) {
   event.preventDefault()
+  $('#totalMoneySuckerPays').empty()
+  store.total = 0
   const filteredData = productData.products.filter(function (item) {
     for (let i = 0; i < store.cart.length; i++) {
       if (store.cart[i].product_id === item.id) {
         item.quantity = store.cart[i].quantity
+        store.total += item.subtotal
         return item
       }
     }
   })
   const showCheckoutHTML = showCheckoutTemplate({ products: filteredData })
+  $('#totalMoneySuckerPays').append('Total: $', store.total)
   $('#checkoutTable tbody').empty()
   $('#checkoutTable tbody').append(showCheckoutHTML)
   // $('#cartPage').hide()
@@ -55,15 +59,18 @@ const populateCheckout = function (event) {
 }
 
 const pushItemsToCart = function () {
+  store.total = 0
   const filteredData = productData.products.filter(function (item) {
     for (let i = 0; i < store.cart.length; i++) {
       if (store.cart[i].product_id === item.id) {
         item.quantity = store.cart[i].quantity
         item.subtotal = item.quantity * item.price
+        store.total += item.subtotal
         return item
       }
     }
   })
+
   const showCartHTML = showCartTemplate({ products: filteredData })
   $('#cartTable tbody').empty()
   $('#cartTable tbody').append(showCartHTML)
@@ -105,6 +112,12 @@ const carriageBoy = () => {
 
 const updateExistingCart = () => {
   const id = store.currentOrder.id
+  console.log('fluffy nuppers', store.cart)
+  if (store.cart.length === 0) {
+    // api request here delete
+    // create api
+  }
+  // else
   const data = {
     'order': {
       'products': store.cart

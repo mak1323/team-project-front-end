@@ -29,6 +29,7 @@ const onCreateNewCartSuccess = function (data) {
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
   store.currentOrder = data.order
   store.cart = []
+  store.total = 0
 }
 
 const onCreateNewCartFailure = function () {

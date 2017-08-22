@@ -16,6 +16,7 @@ const signUpFailure = () => {
 
 const signInSuccess = (data) => {
   store.user = data.user
+  store.total = 0
   $('.logged-out').hide()
   $('.logged-in').show()
   $('.previousOrderList').hide()

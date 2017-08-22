@@ -59,7 +59,7 @@ const createNewCart = function () {
 
 const handleToken = function (token) {
   // pull amount here from store.amount
-  token.amount = 123
+  token.amount = store.total * 100
   // token.amount = store.amount
   // takes token and sends it out to the API
   api.makeCharge(token)
