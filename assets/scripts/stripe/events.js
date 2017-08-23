@@ -91,6 +91,8 @@ const shutUpAndTakeMyMoney = function (event) {
 const addHandlers = () => {
   $('#buttonCheckout').on('click', shutUpAndTakeMyMoney)
 }
+
 module.exports = {
-  addHandlers
+  addHandlers,
+  createNewCart
 }
