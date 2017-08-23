@@ -25,6 +25,7 @@ const onFinalizePaymentSuccess = () => {
 }
 
 const onFinalizePaymentFailure = () => {
+  // stripe api fail does not reach this function
   console.log('onFinalizePaymentFailure')
 }
 

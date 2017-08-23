@@ -31,7 +31,6 @@ const showAllOrdersSuccess = function (data) {
   store.orders.forEach(cleanRyansFunction)
 
   const showOrdersHTML = showOrdersTemplate({ orders: orderHistoryHandlebarsArrayDeluxe })
-  console.log('orderHistoryHandlebarsArrayDeluxe is ', orderHistoryHandlebarsArrayDeluxe)
   $('#previousOrderTable tbody').empty()
   $('#previousOrderTable tbody').append(showOrdersHTML)
   orderHistoryHandlebarsArrayDeluxe = []
@@ -53,7 +52,6 @@ const updateOrderFailure = function () {
 
 }
 const deleteOrderSuccess = (data) => {
-  console.log(data)
 }
 
 const deleteOrderFailure= (data) => {

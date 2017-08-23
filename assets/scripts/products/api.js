@@ -6,7 +6,6 @@ const store = require('../store')
 // of the products. It will also run everytime you click on a category, which
 // will filter to only show the indexed products of a given category.
 const showAllProducts = function () {
-  console.log('api request for show all products')
   return $.ajax({
     url: config.apiOrigin + '/products',
     method: 'GET',
