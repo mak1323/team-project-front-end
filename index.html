@@ -178,7 +178,7 @@
 
 
 <!-- this is the shopping cart -->
-<div class="logged-in" id="cartPage">
+<div class="cart-show" id="cartPage">
   <div class="checkoutButton">
     <div class="checkout pull-right">
       <div class="payment">
@@ -216,12 +216,15 @@
         <th></th>
         <th></th>
         <th></th>
+
         <th>
-          <button type="button" id="buttonClearCart" class="btn btn-primary pull-right">Clear Cart</button></th>
+          <button type="button" id="buttonClearCart" class="btn btn-primary pull-right">Clear Cart</button>
+        </th>
         <th>
           <!-- On this button, we proceed to checkout. We calculate price and tota when this button is invoked. We calculate totals, store it in store.total -->
           <button type="button" id="buttonProceedCheckout" class="btn btn-primary pull-right">Proceed to Checkout</button>
         </th>
+
     </tr>
 </tfoot>
   </table>
@@ -231,7 +234,7 @@
 
 
 
-<div id="checkoutPage" class="logged-in">
+<div id="checkoutPage" class="checkout-show">
   <table id="checkoutTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
     <thead>
       <tr>
