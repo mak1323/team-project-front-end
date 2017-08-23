@@ -20,12 +20,23 @@ let productData
 // cart array.
 const onAddItemToCartArray = function (event) {
   event.preventDefault()
+  let duplicate
   const item = {
     'product_id': $(this).closest('form').find("input[name='id']").val(),
     'quantity': $(this).closest('form').find("input[name='quantity']").val()
   }
-  store.cart.push(item)
-  updateExistingCart()
+  for (let i = 0; i < store.cart.length; i++) {
+    if (store.cart[i].product_id === item.product_id) {
+      store.cart[i].quantity = item.quantity
+      duplicate = true
+    }
+  }
+  if (!duplicate) {
+    store.cart.push(item)
+    updateExistingCart()
+
+  }
+  console.log('updating cart ', store.cart)
 }
 
 const removeFromCartArray = function (event) {
@@ -70,7 +81,6 @@ const populateCheckout = function (event) {
 }
 
 const pushItemsToCart = function () {
-
   store.total = 0
   const filteredData = productData.products.filter(function (item) {
     for (let i = 0; i < store.cart.length; i++) {
