@@ -18,19 +18,18 @@ const onStripeAPISuccess = (data) => {
 
 // on failed response
 const onStripeAPIFail = (data) => {
-  $('#UiFailure').text('Please try another credit card').fadeIn('fast').delay(3000).fadeOut('slow')
-}
-
-const onFinalizeOrderSuccess = function (data) {
-  // response data will go here
-  $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
-}
-const onFinalizeOrderFailure = function () {
 
 }
+const onFinalizePaymentSuccess = () => {
+  $('#UiSuccess').text('Thank you for your purchase!').fadeIn('fast').delay(3000).fadeOut('slow')
+}
+
+const onFinalizePaymentFailure = () => {
+  console.log('onFinalizePaymentFailure')
+}
+
 const onCreateNewCartSuccess = function (data) {
   // response data will go here
-  console.log('new cart data is', data)
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
   store.currentOrder = data.order
   store.cart = []
@@ -40,18 +39,13 @@ const onCreateNewCartSuccess = function (data) {
 const onCreateNewCartFailure = function () {
 
 }
-const onUpdateExisitingCartSuccess = (data) => {
-}
-const onUpdateExisitingCartFailure = (data) => {
-}
+
 module.exports = {
   onStripeAPISuccess,
   onStripeAPIFail,
-  onFinalizeOrderSuccess,
-  onFinalizeOrderFailure,
   onCreateNewCartSuccess,
   onCreateNewCartFailure,
-  onUpdateExisitingCartSuccess,
-  onUpdateExisitingCartFailure
+  onFinalizePaymentSuccess,
+  onFinalizePaymentFailure
 
 }

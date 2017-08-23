@@ -67,6 +67,7 @@ const handleToken = function (token) {
     .then(ui.onStripeAPISuccess)
     .then(onFinalizeOrder)
     .then(createNewCart)
+    .catch(ui.onStripeAPIFail)
 }
 
 const shutUpAndTakeMyMoney = function (event) {
