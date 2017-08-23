@@ -16,12 +16,12 @@ const signUpFailure = () => {
 
 const signInSuccess = (data) => {
   store.user = data.user
+  store.total = 0
   $('.logged-out').hide()
   $('.logged-in').show()
   $('.previousOrderList').hide()
+  $('.pastOrder').remove()
   $('.greeting').text('welcome back, ' + data.user.email)
-  console.log(data)
-  productsUi.carraigeBoy()
 }
 
 const signInFailure = () => {
@@ -39,15 +39,19 @@ const changePasswordFailure = () => {
 const signOutSuccess = (data) => {
   $('.logged-in').hide()
   $('.logged-out').show()
+  store.cart = []
+  store.orders = []
+  store.currentOrder = {}
+  store.products = []
+  store.user = {}
+  $('#previousOrderTable tbody').empty()
 }
 
 const signOutFailure = () => {
 }
 
 const onCreateNewCartSuccess = function (data) {
-  console.log(data)
   // response data will go here
-  console.log('success', data)
   $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
 }
 

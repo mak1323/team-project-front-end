@@ -40,8 +40,8 @@
         <div class="signInError"></div>
         <form id="sign-in">
           <fieldset>
-            <input value="b"id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]'>
-            <input value="b" id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]'>
+            <input value="numnums"id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]'>
+            <input value="n" id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]'>
             <button id="showAllProductsOnSignIn" class="btn btn-primary btn-lg" type="submit">Sign in!</button>
           </fieldset>
         </form>
@@ -109,7 +109,7 @@
     </div>
   </header>
 
-  <div class="landingPage">
+  <div class="landingPage logged-in">
     <!--  the class "logged-in" is what hides the product list when a user signs out, it is located in the auth/ui-->
     <div class="productList logged-in">
       <table id="productTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
@@ -146,7 +146,7 @@
     </div>
   </div>
 
-  <div class="previousOrderList logged-in">
+  <div id="previousOrdersTableDiv" class="previousOrderList logged-in">
     <table id="previousOrderTable" class="table" data-toggle="table" data-sort-name="title" data-sort-order="desc">
       <thead>
         <tr>
@@ -161,8 +161,7 @@
           </th>
         </tr>
       </thead>
-      <!-- this empty tbody coupling is where the shoppingCart is appended. This is necessary to refresh the list. -->
-      <tbody>
+      <tbody id="prevOrderBody">
       </tbody>
     </table>
   </div>
@@ -179,7 +178,7 @@
 
 
 <!-- this is the shopping cart -->
-<div id="cartPage">
+<div class="logged-in" id="cartPage">
   <div class="checkoutButton">
     <div class="checkout pull-right">
       <div class="payment">
@@ -200,6 +199,9 @@
         </th>
         <th data-field="quantity" data-sortable="true">
           Quantity
+        </th>
+        <th data-field="subtotal" data-sortable="true">
+          Item Subtotal
         </th>
         <th data-field="edit-delete" data-sortable="false">
           Remove Item
@@ -254,8 +256,8 @@
     <tr>
         <th></th>
         <th></th>
-        <th>Total:</th>
         <th><button type="button" id="buttonBack" class="btn btn-primary pull-right">Back To Cart</button></th>
+        <th id="totalMoneySuckerPays"></th>
         <th>
           <script src="https://checkout.stripe.com/checkout.js"></script>
           <button type="button" id="buttonCheckout" class="btn btn-primary pull-right">Checkout</button>

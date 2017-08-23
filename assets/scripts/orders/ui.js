@@ -2,7 +2,7 @@
 const showOrdersTemplate = require('../templates/orders.handlebars')
 const store = require('../store')
 
-const orderHistoryHandlebarsArrayDeluxe = []
+let orderHistoryHandlebarsArrayDeluxe = []
 // refines the past order data
 
 const cleanRyansFunction = function (order) {
@@ -17,24 +17,24 @@ const cleanRyansFunction = function (order) {
     const pojo = {
       date_placed: order.date_placed.split('T')[0],
       products: order.products,
-      total: order.salesProof.amount
+      total: order.amount
     }
     orderHistoryHandlebarsArrayDeluxe.push(pojo)
   } else {
     store.currentOrder = order
     store.cart = order.products
-    console.log('current cart =', store.cart)
   }
 }
 
 const showAllOrdersSuccess = function (data) {
   store.orders = data.orders
-
-  console.log('store.orders show ', store.orders)
   store.orders.forEach(cleanRyansFunction)
 
   const showOrdersHTML = showOrdersTemplate({ orders: orderHistoryHandlebarsArrayDeluxe })
-  $('#previousOrderTable').append(showOrdersHTML)
+  console.log('orderHistoryHandlebarsArrayDeluxe is ', orderHistoryHandlebarsArrayDeluxe)
+  $('#previousOrderTable tbody').empty()
+  $('#previousOrderTable tbody').append(showOrdersHTML)
+  orderHistoryHandlebarsArrayDeluxe = []
 }
 
 const showAllOrdersFailure = function () {
@@ -48,7 +48,6 @@ const addOrderFailure = function () {
 }
 
 const updateOrderSuccess = function (data) {
-  console.log(data)
 }
 const updateOrderFailure = function () {
 
