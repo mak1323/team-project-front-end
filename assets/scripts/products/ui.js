@@ -117,6 +117,8 @@ const showAllProductsFailure = function () {
 
 // create a cart if there isn't one and if there is one then send a patch request to update the existing cart
 const carriageBoy = () => {
+  console.log('carriageboy')
+  console.log(store.currentOrder)
   if (!store.currentOrder) {
     const data = {
       'order': {

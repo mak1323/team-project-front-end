@@ -43,7 +43,7 @@ const signOutSuccess = (data) => {
   $('.logged-out').show()
   store.cart = []
   store.orders = []
-  store.currentOrder = {}
+  store.currentOrder = null
   store.products = []
   store.user = {}
   $('#previousOrderTable tbody').empty()
