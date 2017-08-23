@@ -114,7 +114,8 @@ h3 {
   background-color: #0D263B;
   padding: 20px;
   height: 200px;
-  width: auto;
+  width: 100%;
+  position: fixed;
 }
 
 .login-status {
@@ -162,10 +163,11 @@ h3 {
   background-color: #0D263B;
   padding: 20px;
   color: white;
-  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  margin-top: 20px;
+  position: fixed;
 }
 
 .text-field,
@@ -213,6 +215,7 @@ th {
 table {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, .4);
   border: 4px solid #0D263B;
+  margin-top: 200px;
 }
 
 .dataTables_wrapper {
@@ -220,7 +223,6 @@ table {
   float: left;
   width: 73%;
   margin: 10px 0 130px;
-  overflow: auto;
 }
 
 
@@ -306,10 +308,10 @@ p {
 #checkoutPage,
 .productList,
 .previousOrderList {
-
   padding: 5px;
-  margin-bottom: 100px
+  margin-bottom: 100px;
 }
+
 
 .sub-heading {
   margin: 0 auto;
@@ -329,6 +331,6 @@ p {
 }
 
 .thumbnail {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
 }
