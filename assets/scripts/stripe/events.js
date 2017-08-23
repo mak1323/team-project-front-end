@@ -2,6 +2,8 @@
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
+const ordersApi = require('../orders/api')
+const ordersUi = require('../orders/ui')
 
 // this is the token retriever.
 // It takes the CC data in the form, sends it to the third
@@ -40,6 +42,8 @@ const onFinalizeOrder = function () {
   }
   api.finalizeOrder(data, id)
     .then(ui.onFinalizePaymentSuccess)
+    .then(ordersApi.showAllOrders)
+    .then(ordersUi.showAllOrdersSuccess)
     .catch(ui.onFinalizePaymentFailure)
 }
 
