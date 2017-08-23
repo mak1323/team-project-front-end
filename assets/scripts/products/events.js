@@ -1,6 +1,9 @@
 'use strict'
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
+const ordersAPI = require('../orders/api')
+const stripeEvents = require('../stripe/events')
 
 // show the product catalog on the landing page, this function is called on
 // sign in
@@ -44,12 +47,22 @@ const onBackToCartButton = () => {
   $('#checkoutPage').hide()
 }
 
+const onClearCart = () => {
+  store.cart = []
+  const data = store.currentOrder
+  console.log('current order is', data)
+  ordersAPI.deleteOrder(data)
+    .then(stripeEvents.createNewCart)
+    .then(ui.pushItemsToCart)
+}
+
 const addHandlers = () => {
   $('#returnToProducts').on('click', onProductsMenuButton)
   $('#shoppingCartButton').on('click', onShoppingCartMenuButton)
   $('#orderHistoryButton').on('click', onOrderHistoryButton)
   $('#buttonProceedCheckout').on('click', onCheckoutMenuButton)
   $('#buttonBack').on('click', onBackToCartButton)
+  $('#buttonClearCart').on('click', onClearCart)
 }
 
 module.exports = {

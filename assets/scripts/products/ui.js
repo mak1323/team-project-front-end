@@ -59,6 +59,7 @@ const populateCheckout = function (event) {
 }
 
 const pushItemsToCart = function () {
+
   store.total = 0
   const filteredData = productData.products.filter(function (item) {
     for (let i = 0; i < store.cart.length; i++) {
@@ -132,5 +133,6 @@ const updateExistingCart = () => {
 module.exports = {
   showAllProductsSuccess,
   showAllProductsFailure,
-  carriageBoy
+  carriageBoy,
+  pushItemsToCart
 }

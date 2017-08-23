@@ -52,6 +52,14 @@ const updateOrderSuccess = function (data) {
 const updateOrderFailure = function () {
 
 }
+const deleteOrderSuccess = (data) => {
+  console.log(data)
+}
+
+const deleteOrderFailure= (data) => {
+
+}
+
 
 module.exports = {
   showAllOrdersSuccess,
