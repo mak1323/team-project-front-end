@@ -32,7 +32,6 @@ const removeFromCartArray = function (event) {
   if (store.cart.length === 1) {
     store.cart = []
     const data = store.currentOrder
-    console.log('current order is', data)
     ordersAPI.deleteOrder(data)
       .then(stripeEvents.createNewCart)
       .then(pushItemsToCart)
@@ -137,10 +136,15 @@ const updateExistingCart = () => {
   }
 
   api.finalizeOrder(data, id)
-    .then(ui.onUpdateExisitingCartSuccess)
-    .catch(ui.onUpdateExisitingCartFailure)
+    .then(onUpdateExisitingCartSuccess)
+    .catch(onUpdateExisitingCartFailure)
 }
-
+const onUpdateExisitingCartSuccess = () => {
+  $('#UiSuccess').text('Your cart has been updated').fadeIn('fast').delay(3000).fadeOut('slow')
+}
+const onUpdateExisitingCartFailure = () => {
+  $('#UiFailure').text('Oops! Something went wrong!').fadeIn('fast').delay(3000).fadeOut('slow')
+}
 module.exports = {
   showAllProductsSuccess,
   showAllProductsFailure,

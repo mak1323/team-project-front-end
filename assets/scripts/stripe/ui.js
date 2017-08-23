@@ -30,7 +30,6 @@ const onFinalizePaymentFailure = () => {
 
 const onCreateNewCartSuccess = function (data) {
   // response data will go here
-  $('#UiFailure').text('Thank you for your order!').fadeIn('fast').delay(3000).fadeOut('slow')
   store.currentOrder = data.order
   store.cart = []
   store.total = 0
