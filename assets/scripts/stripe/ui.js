@@ -9,6 +9,11 @@ const onStripeAPISuccess = (data) => {
     'currency': data.currency,
     'status': data.status
   }
+  $('.landingPage').show()
+  $('#productTable').show()
+  $('#cartPage').hide()
+  $('#checkoutPage').hide()
+  $('.previousOrderList').hide()
 }
 
 // on failed response
