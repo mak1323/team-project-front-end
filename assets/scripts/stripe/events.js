@@ -24,6 +24,7 @@ window.addEventListener('popstate', function () {
 })
 
 const onFinalizeOrder = function () {
+  const date = new Date()
   const id = store.currentOrder.id
   const proof = store.proofOfSale
   const data = {
@@ -34,6 +35,7 @@ const onFinalizeOrder = function () {
         'currency': proof.currency,
         'status': proof.status
       },
+      'date_placed': date,
       'products': store.cart,
       'isOpen': 'false'
     }
@@ -46,7 +48,7 @@ const onFinalizeOrder = function () {
 const createNewCart = function () {
   const data = {
     'order': {
-      'date_placed': '2017-08-10',
+      'date_placed': '1969-01-01',
       'products': [{}],
       'isOpen': 'true',
       '_owner': store.user.id
