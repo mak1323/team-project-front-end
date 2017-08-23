@@ -19,6 +19,8 @@ const signInSuccess = (data) => {
   store.total = 0
   $('.logged-out').hide()
   $('.logged-in').show()
+  $('.cart-show').hide()
+  $('.checkout-show').hide()
   $('.previousOrderList').hide()
   $('.pastOrder').remove()
   $('.greeting').text('welcome back, ' + data.user.email)
