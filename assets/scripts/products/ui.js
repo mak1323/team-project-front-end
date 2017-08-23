@@ -4,6 +4,8 @@ const store = require('../store')
 // const cart = require('../cart')
 const api = require('../stripe/api')
 const ui = require('../stripe/ui')
+const ordersAPI = require('../orders/api')
+const stripeEvents = require('../stripe/events')
 
 const showProductsTemplate = require('../templates/products.handlebars')
 const showCartTemplate = require('../templates/cart.handlebars')
@@ -27,14 +29,23 @@ const onAddItemToCartArray = function (event) {
 }
 
 const removeFromCartArray = function (event) {
-  const newCart = store.cart.filter(function (item) {
-    if (item.product_id !== $(event.target).data('id')) {
-      return item
-    }
-  })
-  store.cart = newCart
-  pushItemsToCart()
-  updateExistingCart()
+  if (store.cart.length === 1) {
+    store.cart = []
+    const data = store.currentOrder
+    console.log('current order is', data)
+    ordersAPI.deleteOrder(data)
+      .then(stripeEvents.createNewCart)
+      .then(pushItemsToCart)
+  } else {
+    const newCart = store.cart.filter(function (item) {
+      if (item.product_id !== $(event.target).data('id')) {
+        return item
+      }
+    })
+    store.cart = newCart
+    pushItemsToCart()
+    updateExistingCart()
+  }
 }
 
 const populateCheckout = function (event) {

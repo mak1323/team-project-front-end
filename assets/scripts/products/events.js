@@ -50,7 +50,6 @@ const onBackToCartButton = () => {
 const onClearCart = () => {
   store.cart = []
   const data = store.currentOrder
-  console.log('current order is', data)
   ordersAPI.deleteOrder(data)
     .then(stripeEvents.createNewCart)
     .then(ui.pushItemsToCart)
