@@ -34,8 +34,8 @@ const onAddItemToCartArray = function (event) {
   if (!duplicate) {
     store.cart.push(item)
     updateExistingCart()
-
   }
+
   console.log('updating cart ', store.cart)
 }
 
