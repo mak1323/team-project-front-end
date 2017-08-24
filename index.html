@@ -36,16 +36,16 @@
         <h4 id="UiFailure" class="error-msg"></h4>
         <h4 id="UiSuccess" class="success-msg"></h4>
         <h5 id="confirm-purchase" class="purchaseConfirm error-msg"></h5>
+      </div>
     </nav>
-</div>
 
     <div class="login-status">
       <div class="logged-out">
         <div class="signInError"></div>
         <form id="sign-in">
           <fieldset>
-            <input value="numnums"id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]'>
-            <input value="n" id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]'>
+            <input id='signin-email' class='text-field text-field-signin' type='text' placeholder='Email' name='credentials[email]'>
+            <input id='signin-pw' class='text-field text-field-signin' type='password' placeholder='Password' name='credentials[password]'>
             <button id="showAllProductsOnSignIn" class="btn btn-primary btn-lg" type="submit">Sign in!</button>
           </fieldset>
         </form>
@@ -68,6 +68,7 @@
       </form><br><br><br>
     </div>
   </div>
+</header>
 
     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
@@ -111,7 +112,6 @@
         </div>
       </div>
     </div>
-  </header>
 
   <div class="landingPage logged-in">
     <!--  the class "logged-in" is what hides the product list when a user signs out, it is located in the auth/ui-->
