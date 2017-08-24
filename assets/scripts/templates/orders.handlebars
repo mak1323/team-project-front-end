@@ -10,7 +10,7 @@ be displayed, through this mechanism, on the landingPage -->
   {{#each order.products as |product|}}
     <li>{{product.name}}, Ordered: {{product.quantity}}</li>
     {{/each}}
- <td><p>{{order.salesProof.amount}}</p></td>
+ <td><p>${{order.total}}</p></td>
 
 
 
