@@ -35,8 +35,6 @@ const onAddItemToCartArray = function (event) {
     store.cart.push(item)
     updateExistingCart()
   }
-
-  console.log('updating cart ', store.cart)
 }
 
 const removeFromCartArray = function (event) {
@@ -75,8 +73,6 @@ const populateCheckout = function (event) {
   $('#totalMoneySuckerPays').append('Total: $', store.total)
   $('#checkoutTable tbody').empty()
   $('#checkoutTable tbody').append(showCheckoutHTML)
-  // $('#cartPage').hide()
-  // $('#checkoutPage').show()
 }
 
 const pushItemsToCart = function () {
@@ -96,6 +92,12 @@ const pushItemsToCart = function () {
   $('#cartTable tbody').empty()
   $('#cartTable tbody').append(showCartHTML)
   $('.removeFromCart').on('click', removeFromCartArray)
+
+  if (!store.cart.length) {
+    $('#buttonProceedCheckout').hide()
+  } else {
+    $('#buttonProceedCheckout').show()
+  }
 }
 
 const showAllProductsSuccess = function (data) {
@@ -116,8 +118,6 @@ const showAllProductsFailure = function () {
 
 // create a cart if there isn't one and if there is one then send a patch request to update the existing cart
 const carriageBoy = () => {
-  console.log('carriageboy')
-  console.log(store.currentOrder)
   if (!store.currentOrder) {
     const data = {
       'order': {
@@ -135,7 +135,6 @@ const carriageBoy = () => {
 
 const updateExistingCart = () => {
   const id = store.currentOrder.id
-  console.log('fluffy nuppers', store.cart)
   if (store.cart.length === 0) {
     // api request here delete
     // create api
