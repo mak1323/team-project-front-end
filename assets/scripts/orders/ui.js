@@ -17,7 +17,7 @@ const cleanRyansFunction = function (order) {
     const pojo = {
       date_placed: order.date_placed.split('T')[0],
       products: order.products,
-      total: order.amount
+      total: order.salesProof.amount
     }
     orderHistoryHandlebarsArrayDeluxe.push(pojo)
   } else {
@@ -59,7 +59,6 @@ const deleteOrderSuccess = (data) => {
 const deleteOrderFailure= (data) => {
 
 }
-
 
 module.exports = {
   showAllOrdersSuccess,
