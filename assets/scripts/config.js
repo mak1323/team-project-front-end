@@ -3,7 +3,7 @@
 const config = {
   apiOrigins: {
 
-    production: 'https://mudabish.herokuapp.com',
+    production: 'https://shrouded-island-87201.herokuapp.com',
     development: 'http://localhost:4741'
 
   }
