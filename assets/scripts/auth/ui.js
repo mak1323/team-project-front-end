@@ -7,7 +7,7 @@ const productsUi = require('../products/ui')
 const signUpSuccess = (data) => {
   $('#signUpModal').modal('hide')
   $('.text-field-signup').val('')
-  // $('#sign-in').submit()
+  $('#UiSuccess').text('Create successful now log in and start shopping.').fadeIn('fast').delay(5000).fadeOut('slow')
 }
 
 const signUpFailure = () => {
