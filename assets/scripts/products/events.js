@@ -55,6 +55,14 @@ const onClearCart = () => {
     .then(ui.pushItemsToCart)
 }
 
+const onBackToShopping = () => {
+  $('.landingPage').show()
+  $('#productTable').show()
+  $('#cartPage').hide()
+  $('#checkoutPage').hide()
+  $('.previousOrderList').hide()
+}
+
 const addHandlers = () => {
   $('#returnToProducts').on('click', onProductsMenuButton)
   $('#shoppingCartButton').on('click', onShoppingCartMenuButton)
@@ -62,6 +70,7 @@ const addHandlers = () => {
   $('#buttonProceedCheckout').on('click', onCheckoutMenuButton)
   $('#buttonBack').on('click', onBackToCartButton)
   $('#buttonClearCart').on('click', onClearCart)
+  $('#buttonBackToShopping').on('click', onBackToShopping)
 }
 
 module.exports = {
